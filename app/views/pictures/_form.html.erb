@@ -11,42 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user, id: :picture_user %>
-  </div>
+  <fieldset class="form-group row">
+    <legend>Enter things here</legend>
 
-  <div class="field">
-    <%= form.label :image_title %>
-    <%= form.text_field :image_title, id: :picture_image_title %>
-  </div>
+    <div class="form-group">
+      <%= form.label :caption %>
+      <%= form.text_field :caption, id: :picture_caption, class: 'form-control' %>
+      <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
+    </div>
 
-  <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_field :caption, id: :picture_caption %>
-  </div>
+    <div class="form-group">
+      <%= form.label :image_title %>
+      <%= form.text_field :image_title, id: :picture_image_title, class: 'form-control' %>
+      <small id="titleHelp" class="form-text text-muted">The title on the image page</small>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :picture_description %>
-  </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :picture_description, class: 'form-control' %>
+      <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
+    </div>
+  </fieldset>
 
-  <div class="field">
-    <%= form.label :month %>
-    <%= form.text_field :month, id: :picture_month %>
-  </div>
+  <fieldset class="form-group row">
+    <legend>You can probably ignore these fields</legend>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year, id: :picture_year %>
-  </div>
+    <div class="form-group">
+      <%= form.label :user %>
+      <%= form.text_field :user, id: :picture_user, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :picture_image %>
-  </div>
+    <div class="form-group">
+      <%= form.label :month %>
+      <%= form.text_field :month, id: :picture_month, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="form-group">
+      <%= form.label :year %>
+      <%= form.number_field :year, id: :picture_year, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :image %>
+      <%= form.text_field :image, id: :picture_image, class: 'form-control' %>
+    </div>
+  </fieldset>
+
+  <div class="actions row">
+    <%= form.submit 'Behold my image', :class => 'btn btn-primary' %>
   </div>
 <% end %>
