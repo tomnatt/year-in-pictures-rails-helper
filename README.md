@@ -6,3 +6,26 @@ See also:
 
 * [Year in pictures](https://github.com/tomnatt/year-in-pictures)
 * [Year in pictures React helper](https://github.com/tomnatt/year-in-pictures-helper)
+
+## TODO:
+
+### Authentication
+* Sign-up
+* Hide destructive options
+* Lock pictures to people
+
+### Homepage
+
+### Deployment
+* Docker
+* AWS
+
+### Input:
+* Validation
+* Populate automatic fields
+* Hide automatic fields
+* WYSIWYG helpers
+
+### Output:
+* Per-picture YAML view
+* Per-month YAML view
