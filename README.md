@@ -23,6 +23,9 @@ See also:
 
 ### Input:
 * Validation
+** ~~presence~~
+** selects
+** styling
 * Populate automatic fields
 * Hide automatic fields
 * WYSIWYG helpers
