@@ -1,24 +1,8 @@
-# README
+# Year in pictures helper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app to simplify the monthly process for the [year in pictures site](https://github.com/tomnatt/year-in-pictures).
 
-Things you may want to cover:
+See also:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Year in picture](https://github.com/tomnatt/year-in-pictures)
+* [Year in pictures React helper](https://github.com/tomnatt/year-in-pictures-helper)
