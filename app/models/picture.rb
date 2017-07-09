@@ -8,6 +8,8 @@ class Picture < ApplicationRecord
             :year,
             :image, presence: true
 
+  validates :year, numericality: { only_integer: true }
+
   after_initialize :default_values
 
   def default_values

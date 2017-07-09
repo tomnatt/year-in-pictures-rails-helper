@@ -48,7 +48,9 @@
 
     <div class="form-group">
       <%= form.label :year %>
-      <%= form.number_field :year, id: :picture_year, class: 'form-control' %>
+      <%= form.select :year,
+                      [Date.current.year - 1, Date.current.year, Date.current.year + 1], {},
+                      { id: :picture_year, class: 'custom-select' } %>
     </div>
 
     <div class="form-group">
