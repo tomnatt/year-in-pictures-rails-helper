@@ -1,39 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @picture.photographer %>
-</p>
+<pre>
+<%= @picture.yaml_output %>
+</pre>
 
-<p>
-  <strong>Image title:</strong>
-  <%= @picture.image_title %>
-</p>
+<h2>Other fields</h2>
 
-<p>
-  <strong>Caption:</strong>
-  <%= @picture.caption %>
-</p>
+<ul>
+  <li>
+    <strong>User:</strong>
+    <%= @picture.photographer %>
+  </li>
 
-<p>
-  <strong>Description:</strong>
-  <%= @picture.description %>
-</p>
-
-<p>
-  <strong>Month:</strong>
-  <%= @picture.month %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @picture.year %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @picture.image %>
-</p>
+  <li>
+    <strong>Year:</strong>
+    <%= @picture.year %>
+  </li>
+</ul>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>

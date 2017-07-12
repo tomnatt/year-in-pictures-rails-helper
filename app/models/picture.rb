@@ -39,4 +39,18 @@ class Picture < ApplicationRecord
        hon iris kat kirsty lyns
        michael sean sheena teresa tom]
   end
+
+  # Going to brute force this output until I find something nicer
+  # WARNING: syntax highlighting doesn't like this
+  def yaml_output
+    <<YAML
+  -
+    image: #{image}
+    image_title:  #{image_title}
+    caption: #{caption}
+    description: #{description}
+    alt: #{alt}
+    month: #{month}
+YAML
+  end
 end
