@@ -32,4 +32,6 @@ See also:
 
 ### Output:
 * ~~Per-picture YAML view~~
-* Per-month YAML view
+* ~~Per-month YAML view~~
+* Validate month param
+* Fix linebreaks
