@@ -16,7 +16,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.user %></td>
+        <td><%= picture.photographer %></td>
         <td><%= picture.month %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
