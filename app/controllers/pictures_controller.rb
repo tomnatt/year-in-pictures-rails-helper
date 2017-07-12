@@ -9,8 +9,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1
   # GET /pictures/1.json
-  def show
-  end
+  def show; end
 
   # GET /pictures/new
   def new
@@ -18,8 +17,7 @@ class PicturesController < ApplicationController
   end
 
   # GET /pictures/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pictures
   # POST /pictures.json
