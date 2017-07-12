@@ -31,7 +31,7 @@ class Picture < ApplicationRecord
   end
 
   def populate_image_file
-    self.image = "#{month.rjust(2, '0')}-#{photographer}.jpg"
+    self.image = "#{month.to_s.rjust(2, '0')}-#{photographer}.jpg"
   end
 
   def self.photographers
