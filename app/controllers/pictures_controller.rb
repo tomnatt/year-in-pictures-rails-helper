@@ -1,6 +1,5 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :set_months, only: [:new, :edit]
 
   # GET /pictures
   # GET /pictures.json
@@ -69,12 +68,8 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
-  def set_months
-    @months = Date::MONTHNAMES.compact.zip([*1..12]).to_h
-  end
-
   # Never trust parameters from the scary internet, only allow the white list through.
   def picture_params
-    params.require(:picture).permit(:user, :image_title, :caption, :description, :month, :year, :image)
+    params.require(:picture).permit(:photographer, :image_title, :caption, :description, :month, :year, :image)
   end
 end

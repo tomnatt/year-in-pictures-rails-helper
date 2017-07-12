@@ -37,14 +37,17 @@
     <legend>You can probably ignore these fields</legend>
 
     <div class="form-group">
-      <%= form.label :user %>
-      <%= form.text_field :user, id: :picture_user, class: 'form-control' %>
+      <%= form.label :photographer %>
+      <%= form.select :photographer,
+                      Picture.photographers.map(&:capitalize).zip(Picture.photographers).to_h,
+                      {},
+                      { id: :picture_photographer, class: 'custom-select' } %>
     </div>
 
     <div class="form-group">
       <%= form.label :month %>
       <%= form.select :month,
-                      @months,
+                      Date::MONTHNAMES.compact.zip([*1..12]).to_h,
                       {},
                       { id: :picture_month, class: 'custom-select' } %>
     </div>
