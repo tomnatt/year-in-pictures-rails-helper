@@ -24,12 +24,12 @@ See also:
 ### Input:
 * Validation
 ** ~~presence~~
-** selects
+** ~~selects~~
 ** styling
-* Populate automatic fields
+* ~~Populate automatic fields~~
 * Hide automatic fields
 * WYSIWYG helpers
 
 ### Output:
-* Per-picture YAML view
+* ~~Per-picture YAML view~~
 * Per-month YAML view
