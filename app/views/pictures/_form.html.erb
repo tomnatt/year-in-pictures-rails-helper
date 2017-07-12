@@ -31,6 +31,12 @@
       <%= form.text_area :description, id: :picture_description, class: 'form-control' %>
       <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
     </div>
+
+    <div class="form-group">
+      <%= form.label :alt %>
+      <%= form.text_field :alt, id: :picture_alt, class: 'form-control' %>
+      <small id="altHelp" class="form-text text-muted">The alt text for the image</small>
+    </div>
   </fieldset>
 
   <fieldset class="form-group row">

@@ -8,6 +8,7 @@ class Picture < ApplicationRecord
             :description,
             :month,
             :year,
+            :alt,
             :image, presence: true
 
   validates :photographer, presence: true, if: proc { |p| p.photographer.in?(Picture.photographers) }
