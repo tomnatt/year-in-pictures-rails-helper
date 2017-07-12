@@ -46,11 +46,11 @@ class Picture < ApplicationRecord
     <<YAML
   -
     image: #{image}
-    image_title:  #{image_title}
-    caption: #{caption}
-    description: #{description}
-    alt: #{alt}
-    month: #{month}
+    image_title:  "#{image_title}"
+    caption: "#{caption}"
+    description: #{description.inspect}
+    alt: "#{alt}"
+    month: #{Date::MONTHNAMES[month].downcase}
 YAML
   end
 end
