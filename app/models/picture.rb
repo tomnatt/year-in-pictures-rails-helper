@@ -15,7 +15,7 @@ class Picture < ApplicationRecord
   validates :year, numericality: { only_integer: true }
 
   after_initialize :default_values
-  # before_validation :populate_image_file
+  before_validation :populate_image_file
 
   def default_values
     # Default to last month, taking care of January
@@ -29,9 +29,9 @@ class Picture < ApplicationRecord
     end
   end
 
-  # def populate_image_file
-
-  # end
+  def populate_image_file
+    self.image = "#{month.rjust(2, '0')}-#{photographer}.jpg"
+  end
 
   def self.photographers
     %w[dad dan ed gareth gill
