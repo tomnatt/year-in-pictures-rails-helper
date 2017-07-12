@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_months, only: [:new, :edit]
 
   # GET /pictures
   # GET /pictures.json
@@ -66,6 +67,10 @@ class PicturesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def set_months
+    @months = Date::MONTHNAMES.compact.zip([*1..12]).to_h
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

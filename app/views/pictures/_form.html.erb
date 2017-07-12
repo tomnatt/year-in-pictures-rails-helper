@@ -43,13 +43,17 @@
 
     <div class="form-group">
       <%= form.label :month %>
-      <%= form.text_field :month, id: :picture_month, class: 'form-control' %>
+      <%= form.select :month,
+                      @months,
+                      {},
+                      { id: :picture_month, class: 'custom-select' } %>
     </div>
 
     <div class="form-group">
       <%= form.label :year %>
       <%= form.select :year,
-                      [Date.current.year - 1, Date.current.year, Date.current.year + 1], {},
+                      [Date.current.year - 1, Date.current.year, Date.current.year + 1],
+                      {},
                       { id: :picture_year, class: 'custom-select' } %>
     </div>
 
