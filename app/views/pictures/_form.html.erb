@@ -1,7 +1,7 @@
 <%= form_with(model: picture, local: true) do |form| %>
   <% if picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2 class="alert-heading"><%= pluralize(picture.errors.count, "error") %> stopped this picture from being saved:</h2>
 
       <ul>
       <% picture.errors.full_messages.each do |message| %>
@@ -12,27 +12,27 @@
   <% end %>
 
   <fieldset class="form-group row">
-    <legend>Enter things here</legend>
+    <legend class="col">Enter things here</legend>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :caption %>
       <%= form.text_field :caption, id: :picture_caption, class: 'form-control' %>
       <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :image_title %>
       <%= form.text_field :image_title, id: :picture_image_title, class: 'form-control' %>
       <small id="titleHelp" class="form-text text-muted">The title on the image page</small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :description %>
       <%= form.text_area :description, id: :picture_description, class: 'form-control' %>
       <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :alt %>
       <%= form.text_field :alt, id: :picture_alt, class: 'form-control' %>
       <small id="altHelp" class="form-text text-muted">The alt text for the image</small>
@@ -40,9 +40,9 @@
   </fieldset>
 
   <fieldset class="form-group row">
-    <legend>You can probably ignore these fields</legend>
+    <legend class="col">You can probably ignore these fields</legend>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :photographer %>
       <%= form.select :photographer,
                       Picture.photographers.map(&:capitalize).zip(Picture.photographers).to_h,
@@ -50,7 +50,7 @@
                       { id: :picture_photographer, class: 'custom-select' } %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :month %>
       <%= form.select :month,
                       Date::MONTHNAMES.compact.zip([*1..12]).to_h,
@@ -58,7 +58,7 @@
                       { id: :picture_month, class: 'custom-select' } %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col">
       <%= form.label :year %>
       <%= form.select :year,
                       [Date.current.year - 1, Date.current.year, Date.current.year + 1],
@@ -68,6 +68,8 @@
   </fieldset>
 
   <div class="actions row">
-    <%= form.submit 'Behold my image', :class => 'btn btn-primary' %>
+    <div class="col">
+      <%= form.submit 'Behold my image', class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

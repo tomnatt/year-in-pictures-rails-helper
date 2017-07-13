@@ -1,9 +1,13 @@
 <div class="row">
-  <h1>Editing Picture</h1>
+  <div class="col">
+    <h1>Editing Picture</h1>
+  </div>
 </div>
 
 <%= render 'form', picture: @picture %>
 
 <div class="row">
-  <%= link_to 'Show', @picture %> | <%= link_to 'Back', pictures_path %>
+  <p class="col">
+    <%= link_to 'Show', @picture %> | <%= link_to 'Back', pictures_path %>
+  </p>
 </div>
