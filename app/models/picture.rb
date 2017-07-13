@@ -41,6 +41,7 @@ class Picture < ApplicationRecord
   end
 
   # Going to brute force this output until I find something nicer
+  # to do the YAML (with nice formatting) and the line breaks
   # WARNING: syntax highlighting doesn't like this
   def yaml_output
     <<YAML
@@ -48,7 +49,7 @@ class Picture < ApplicationRecord
     image: #{image}
     image_title:  "#{image_title}"
     caption: "#{caption}"
-    description: #{description.inspect}
+    description: #{description.inspect.gsub(/\\r\\n\\r\\n/, '<br ><br >')}
     alt: "#{alt}"
     month: #{Date::MONTHNAMES[month].downcase}
 YAML
