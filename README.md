@@ -15,6 +15,10 @@ See also:
 * Lock pictures to people
 
 ### Homepage
+* ~~Add count~~
+* ~~Sort photographs~~
+* Add name of active user
+* Improve CTA
 
 ### Deployment
 * Docker
@@ -30,8 +34,3 @@ See also:
 * Hide automatic fields
 * WYSIWYG helpers
 
-### Output:
-* ~~Per-picture YAML view~~
-* ~~Per-month YAML view~~
-* ~~Validate month param~~
-* ~~Fix linebreaks~~
