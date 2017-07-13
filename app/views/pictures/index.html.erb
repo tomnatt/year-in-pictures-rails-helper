@@ -13,8 +13,8 @@
     <h2>Added last month (<%= @last_month_name %>): <%= @last_month_pictures.count %></h2>
   </div>
 
-  <%- @photographers.each do |photographer| -%>
-  <p class="col-4 alert alert-success">
+  <%- @photographers.each do |photographer, submitted| -%>
+  <p class="col-4 alert <%= submitted ? 'alert-success' : 'alert-danger' -%>">
     <%= photographer.capitalize %>
   </p>
   <%- end -%>

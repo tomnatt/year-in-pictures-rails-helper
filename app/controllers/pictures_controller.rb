@@ -7,8 +7,13 @@ class PicturesController < ApplicationController
     last_month = Date.current.month - 1
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
-    @photographers = Picture.photographers
     @pictures = Picture.all.order(month: :desc, photographer: :asc)
+
+    # Construct a hash of { photographer => photo_submitted? }
+    @photographers = {}
+    Picture.photographers.each do |photographer|
+      @photographers[photographer] = @last_month_pictures.any? { |pic| pic.photographer == photographer }
+    end
   end
 
   # GET /pictures/1
