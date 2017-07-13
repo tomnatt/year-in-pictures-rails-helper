@@ -4,7 +4,11 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    last_month = Date.current.month - 1
+    @last_month_name = Date::MONTHNAMES[last_month]
+    @last_month_pictures = Picture.where(month: last_month)
+    @photographers = Picture.photographers
+    @pictures = Picture.all.order(month: :desc, photographer: :asc)
   end
 
   # GET /pictures/1

@@ -1,27 +1,46 @@
-<p id="notice"><%= notice %></p>
+<p class="row" id="notice"><%= notice %></p>
 
-<h1>Welcome</h1>
+<div class="row">
+  <div class="col">
+    <h1>Welcome</h1>
 
-<p>Please <%= link_to 'add a picture', new_picture_path %></p>
+    <p>Please <%= link_to 'add a picture', new_picture_path %></p>
+  </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Month</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-12">
+    <h2>Added last month (<%= @last_month_name %>): <%= @last_month_pictures.count %></h2>
+  </div>
 
-  <tbody>
-    <% @pictures.each do |picture| %>
+  <%- @photographers.each do |photographer| -%>
+  <p class="col-4 alert alert-success">
+    <%= photographer.capitalize %>
+  </p>
+  <%- end -%>
+</div>
+
+<div class="row">
+  <table class="col table">
+    <thead>
       <tr>
-        <td><%= picture.photographer.capitalize %></td>
-        <td><%= Date::MONTHNAMES[picture.month] %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>User</th>
+        <th>Month</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @pictures.each do |picture| %>
+        <tr>
+          <td><%= picture.photographer.capitalize %></td>
+          <td><%= Date::MONTHNAMES[picture.month] %></td>
+          <td><%= link_to 'Show', picture %></td>
+          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

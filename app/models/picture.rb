@@ -37,7 +37,7 @@ class Picture < ApplicationRecord
   def self.photographers
     %w[dad dan ed gareth gill
        hon iris kat kirsty lyns
-       michael sean sheena teresa tom]
+       michael sean sheena teresa tom].sort
   end
 
   # Going to brute force this output until I find something nicer
