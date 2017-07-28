@@ -1,13 +1,11 @@
 class ConvertMonthToInteger < ActiveRecord::Migration[5.1]
   def up
-    change_table :pictures do |t|
-      t.change :month, :integer
-    end
+    remove_column :pictures, :month
+    add_column :pictures, :month, :integer
   end
 
   def down
-    change_table :pictures do |t|
-      t.change :month, :string
-    end
+    t.remove_column :pictures, :month
+    t.add_column :pictures, :month, :string
   end
 end
