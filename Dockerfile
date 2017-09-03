@@ -1,6 +1,6 @@
 FROM ruby:2.3.4
 
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils
 
 # for postgres
 RUN apt-get install -y libpq-dev
