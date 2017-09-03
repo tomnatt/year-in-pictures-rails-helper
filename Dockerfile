@@ -16,6 +16,7 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 COPY Gemfile* ./
+COPY .ruby-version ./
 COPY bin/entrypoint ./
 RUN bundle install
 
