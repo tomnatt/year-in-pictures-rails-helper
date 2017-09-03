@@ -13,6 +13,7 @@ See also:
 * Docker
 ** Working Dockerfile
 ** Test via deploying to Sean's dokku
+** Fix docker-compose for local?
 * AWS
 ** Deploy to EC2 Container Service
 ** ~~S3 bucket~~

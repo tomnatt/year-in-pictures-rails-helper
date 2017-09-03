@@ -4,7 +4,14 @@ services:
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - .:/code
     env_file:
       - '.env.web'
+    depends_on:
+      - db
+    volumes:
+      - .:/code
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+
