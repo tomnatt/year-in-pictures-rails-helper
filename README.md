@@ -9,6 +9,16 @@ See also:
 
 ## TODO:
 
+### Deployment
+* Docker
+** Working Dockerfile
+** Test via deploying to Sean's dokku
+* AWS
+** Deploy to EC2 Container Service
+** ~~S3 bucket~~
+** Connect to upload in app
+** Lambda function to resize images
+
 ### Authentication
 * Sign-up
 * Hide destructive options
@@ -20,12 +30,6 @@ See also:
 * Add name of active user
 * Improve CTA
 
-### Deployment
-* Docker
-* Database
-* AWS
-
 ### Input:
 * Hide automatic fields
 * WYSIWYG helpers
-
