@@ -24,7 +24,7 @@ RUN bundle install
 
 COPY . .
 
-# EXPOSE 3000
+EXPOSE 3000
 # ENTRYPOINT ["./entrypoint"]
 # Empty CMD to allow deployment to Heroku
 # CMD []
