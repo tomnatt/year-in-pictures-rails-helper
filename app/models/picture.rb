@@ -30,8 +30,8 @@ class Picture < ApplicationRecord
     end
   end
 
-  def populate_image_file
-    self.image = "#{month.to_s.rjust(2, '0')}-#{photographer}.jpg"
+  def populate_image_file(extension = 'jpg')
+    self.image = "#{month.to_s.rjust(2, '0')}-#{photographer}.#{extension}"
   end
 
   # Using this field means the month output will be locked to the current year
@@ -49,7 +49,7 @@ class Picture < ApplicationRecord
     picture.caption = 'Placeholder'
     picture.description = 'Placeholder'
     picture.alt = 'Placeholder'
-    picture.populate_image_file
+    picture.populate_image_file('png')
 
     picture
   end
