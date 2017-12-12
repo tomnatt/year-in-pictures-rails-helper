@@ -12,6 +12,6 @@ class MonthController < ApplicationController
     end
 
     # Sort by photographer
-    @pictures.sort_by(&:photographer)
+    @pictures.sort_by!(&:photographer)
   end
 end
