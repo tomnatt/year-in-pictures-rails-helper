@@ -10,13 +10,8 @@ See also:
 ## TODO:
 
 ### Deployment
-* Docker
-** Working Dockerfile
-** Test via deploying to Sean's dokku
-** Fix docker-compose for local?
-* AWS
-** Deploy to EC2 Container Service
-** ~~S3 bucket~~
+* Deploy to Cloud Foundry
+* ~~S3 bucket~~
 ** Connect to upload in app
 ** Lambda function to resize images
 
