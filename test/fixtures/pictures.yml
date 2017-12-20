@@ -1,19 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: MyString
-  image_title: MyString
-  caption: MyString
-  description: MyString
-  month: MyString
-  year: 1
-  image: MyString
+dan_january:
+  photographer: dan
+  image_title: my title 1
+  caption: my caption 1
+  description: my description 1
+  alt: my alt 1
+  month: 1
+  year: 2017
+  image: 01-dan.jpg
 
-two:
-  user: MyString
-  image_title: MyString
-  caption: MyString
-  description: MyString
-  month: MyString
-  year: 1
-  image: MyString
+tom_january:
+  photographer: tom
+  image_title: my title 2
+  caption: my caption 2
+  description: my description 2
+  alt: my alt 2
+  month: 1
+  year: 2017
+  image: 01-tom.jpg
