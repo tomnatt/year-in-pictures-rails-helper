@@ -1,6 +1,6 @@
 ---
 applications:
-- name: year-in-pictures-rails-helper
+- name: yip-helper
   random-route: true
   memory: 128M
   instances: 1
