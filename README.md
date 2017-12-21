@@ -10,7 +10,7 @@ See also:
 ## TODO:
 
 ### Deployment
-* Deploy to Cloud Foundry
+* ~~Deploy to Heroku~~
 * ~~S3 bucket~~
 ** Connect to upload in app
 ** Lambda function to resize images
