@@ -1,4 +1,6 @@
 class MonthController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @pictures = []
     month = params[:month]
