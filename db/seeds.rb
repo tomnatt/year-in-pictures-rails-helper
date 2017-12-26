@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+admin_email = ENV['YIP_HELPER_EMAIL'] || 'admin@example.com'
+admin_password = ENV['YIP_HELPER_PASSWORD'] || 'password'
+admin = User.create(email: admin_email, password: admin_password)
