@@ -10,10 +10,10 @@ See also:
 ```
 bundle exec rake db:create
 bundle exec rake db:migrate
-YIP_HELPER_EMAIL='foo@example.com' YIP_HELPER_PASSWORD='foobar' bundle exec rake db:seed
+YIP_HELPER_EMAIL='foo@example.com' YIP_HELPER_PASSWORD='foobar' YIP_HELPER_NAME='Person' bundle exec rake db:seed
 ```
 
-The `seed` command will create an admin user with email: 'admin@example.com', password: 'password' unless overridden with the envars `YIP_HELPER_EMAIL` and `YIP_HELPER_PASSWORD`.
+The `seed` command will create an admin user with email: 'admin@example.com', password: 'password', fullname: 'admin' unless overridden with the given envars.
 
 ## TODO:
 

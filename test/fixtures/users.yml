@@ -6,6 +6,8 @@
 #
 one:
   email: test@example.com
+  fullname: 'test one'
 
 two:
   email: secondtest@example.com
+  fullname: 'test two'
