@@ -23,7 +23,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: {
         email: 'createnew@example.com',
         password: 'longenoughpassword',
-        password_confirmation: 'longenoughpassword'
+        password_confirmation: 'longenoughpassword',
+        fullname: 'Name'
       } }
     end
 
