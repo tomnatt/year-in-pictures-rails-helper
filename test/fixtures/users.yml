@@ -4,10 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+user_one:
   email: test@example.com
   fullname: 'test one'
 
-two:
+user_two:
   email: secondtest@example.com
   fullname: 'test two'
+
+user_to_delete:
+  email: deleteme@example.com
+  fullname: 'Delete User'

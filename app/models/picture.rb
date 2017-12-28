@@ -2,7 +2,9 @@
 class Picture < ApplicationRecord
   attr_reader :photographers
 
-  validates :photographer,
+  belongs_to :user
+
+  validates :user,
             :image_title,
             :caption,
             :description,
@@ -11,7 +13,7 @@ class Picture < ApplicationRecord
             :alt,
             :image, presence: true
 
-  validates :photographer, presence: true, if: proc { |p| p.photographer.in?(Picture.photographers) }
+  # validates :photographer, presence: true, if: proc { |p| p.photographer.in?(Picture.photographers) }
   validates :month, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 12 }
   validates :year, numericality: { only_integer: true }
 
@@ -31,7 +33,7 @@ class Picture < ApplicationRecord
   end
 
   def populate_image_file(extension = 'jpg')
-    self.image = "#{month.to_s.rjust(2, '0')}-#{photographer}.#{extension}"
+    self.image = "#{month.to_s.rjust(2, '0')}-#{user.fullname.delete(' ').downcase}.#{extension}"
   end
 
   # Using this field means the month output will be locked to the current year
@@ -44,7 +46,7 @@ class Picture < ApplicationRecord
   # Placeholder picture, for display when a picture is missing
   def self.placeholder(photographer)
     picture = Picture.new
-    picture.photographer = photographer
+    picture.user = User.find_by_fullname_or_placeholder(photographer)
     picture.image_title = 'Placeholder'
     picture.caption = 'Placeholder'
     picture.description = 'Placeholder'

@@ -8,9 +8,10 @@ class MonthController < ApplicationController
 
     # Get the pics and create placeholder entries for any missing
     @pictures = Picture.where(month: month).to_a
-    Picture.photographers.each do |photographer|
-      next if @pictures.any? { |pic| pic.photographer == photographer }
-      @pictures << Picture.placeholder(photographer)
+    # TODO: select only active users
+    User.all.each do |photographer|
+      next if @pictures.any? { |pic| pic.user == photographer }
+      @pictures << Picture.placeholder(photographer.fullname)
     end
 
     # Sort by photographer

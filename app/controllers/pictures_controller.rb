@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:new, :edit, :create, :update]
 
   # GET /pictures
   # GET /pictures.json
@@ -12,8 +13,8 @@ class PicturesController < ApplicationController
 
     # Construct a hash of { photographer => photo_submitted? }
     @photographers = {}
-    Picture.photographers.each do |photographer|
-      @photographers[photographer] = @last_month_pictures.any? { |pic| pic.photographer == photographer }
+    User.all.each do |user|
+      @photographers[user.fullname] = @last_month_pictures.any? { |pic| pic.user == user }
     end
   end
 
@@ -76,8 +77,20 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
+  # TODO: change this to get currently active users
+  def set_users
+    @users = User.all
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def picture_params
-    params.require(:picture).permit(:photographer, :image_title, :caption, :description, :month, :year, :image, :alt)
+    params.require(:picture).permit(:user_id,
+                                    :image_title,
+                                    :caption,
+                                    :description,
+                                    :month,
+                                    :year,
+                                    :image,
+                                    :alt)
   end
 end
