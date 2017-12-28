@@ -5,10 +5,6 @@ class PictureTest < ActiveSupport::TestCase
     @placeholder_picture = Picture.placeholder('test one')
   end
 
-  test 'correct number of photographers' do
-    assert_equal 15, Picture.photographers.length, 'Wrong number of photographers'
-  end
-
   test 'correct image filename' do
     expected_filename = "#{@placeholder_picture.month}-testone.png"
     assert_equal expected_filename, @placeholder_picture.image, 'Incorrectly generated image filename'

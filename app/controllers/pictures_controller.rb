@@ -9,7 +9,8 @@ class PicturesController < ApplicationController
     last_month = Date.current.month - 1
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
-    @pictures = Picture.all.order(month: :desc, photographer: :asc)
+    # TODO: this needs sub-ordering by user - use a scope
+    @pictures = Picture.all.order(month: :desc)
 
     # Construct a hash of { photographer => photo_submitted? }
     @photographers = {}

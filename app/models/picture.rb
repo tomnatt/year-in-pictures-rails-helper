@@ -36,13 +36,6 @@ class Picture < ApplicationRecord
     self.image = "#{month.to_s.rjust(2, '0')}-#{user.fullname.delete(' ').downcase}.#{extension}"
   end
 
-  # Using this field means the month output will be locked to the current year
-  def self.photographers
-    %w[dad dan ed gareth gill
-       hon iris kat kirsty lyns
-       michael sean sheena teresa tom].sort
-  end
-
   # Placeholder picture, for display when a picture is missing
   def self.placeholder(photographer)
     picture = Picture.new
