@@ -4,7 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @user = users(:one)
+    @user = users(:user_one)
     sign_in @user
   end
 
@@ -50,7 +50,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy user' do
     assert_difference('User.count', -1) do
-      delete user_url(@user)
+      delete user_url(users(:user_to_delete))
     end
 
     assert_redirected_to users_url

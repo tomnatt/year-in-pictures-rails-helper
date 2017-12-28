@@ -4,7 +4,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in users(:one)
+    sign_in users(:user_one)
     @picture = pictures(:dan_january)
   end
 
@@ -27,7 +27,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
         image_title: @picture.image_title,
         alt: @picture.alt,
         month: @picture.month,
-        photographer: @picture.photographer,
+        user_id: @picture.user.id,
         year: @picture.year
       } }
     end
@@ -51,8 +51,8 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
       description: @picture.description,
       image: @picture.image,
       image_title: @picture.image_title,
+      user_id: @picture.user.id,
       month: @picture.month,
-      photographer: @picture.photographer,
       year: @picture.year
     } }
     assert_redirected_to picture_url(@picture)
