@@ -20,6 +20,12 @@ class Picture < ApplicationRecord
   after_initialize :default_values
   before_validation :populate_image_file
 
+  scope :sort_by_date_user, lambda {
+    joins('left join users on pictures.user_id = users.id')
+      .order(month: :desc)
+      .order('users.fullname asc')
+  }
+
   def default_values
     # Default to last month, taking care of January
     now = Date.current
