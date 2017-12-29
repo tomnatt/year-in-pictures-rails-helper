@@ -8,6 +8,12 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
     @picture = pictures(:dan_january)
   end
 
+  test 'must require authentication' do
+    sign_out users(:user_one)
+    get pictures_url
+    assert_response :redirect
+  end
+
   test 'should get index' do
     get pictures_url
     assert_response :success
