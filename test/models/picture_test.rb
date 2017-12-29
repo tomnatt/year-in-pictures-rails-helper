@@ -26,7 +26,7 @@ class PictureTest < ActiveSupport::TestCase
     expected_output = <<OUTPUT
   -
     image: #{@placeholder_picture.month}-testone.png
-    image_title:  "Placeholder"
+    image_title: "Placeholder"
     caption: "Placeholder"
     description: "Placeholder"
     alt: "Placeholder"

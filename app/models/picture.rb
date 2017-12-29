@@ -56,7 +56,7 @@ class Picture < ApplicationRecord
     <<YAML
   -
     image: #{image}
-    image_title:  "#{image_title}"
+    image_title: "#{image_title}"
     caption: "#{caption}"
     description: #{description.inspect.gsub(/\\r\\n\\r\\n/, '<br ><br >')}
     alt: "#{alt}"
