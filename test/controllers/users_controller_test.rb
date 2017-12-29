@@ -8,6 +8,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
+  test 'must require authentication' do
+    sign_out @user
+    get users_url
+    assert_response :redirect
+  end
+
   test 'should get index' do
     get users_url
     assert_response :success
