@@ -80,7 +80,7 @@ class PicturesController < ApplicationController
 
   # TODO: change this to get currently active users
   def set_users
-    @users = User.all
+    @users = User.all.order(:fullname)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
