@@ -9,8 +9,7 @@ class PicturesController < ApplicationController
     last_month = Date.current.month - 1
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
-    # TODO: this needs sub-ordering by user - use a scope
-    @pictures = Picture.all.order(month: :desc)
+    @pictures = Picture.sort_by_date_user
 
     # Construct a hash of { photographer => photo_submitted? }
     @photographers = {}
@@ -80,7 +79,7 @@ class PicturesController < ApplicationController
 
   # TODO: change this to get currently active users
   def set_users
-    @users = User.all
+    @users = User.all.order(:fullname)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
