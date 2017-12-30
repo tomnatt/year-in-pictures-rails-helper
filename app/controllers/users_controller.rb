@@ -4,7 +4,23 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # Create three new arrays
+    @admin_users, @standard_users, @disabled_users = Array.new(3) { [] }
+
+    users = User.all
+    users.each do |user|
+      if user.admin?
+        @admin_users << user
+      elsif user.user?
+        @standard_users << user
+      else
+        @disabled_users << user
+      end
+    end
+
+    @admin_users.sort_by!(&:fullname)
+    @standard_users.sort_by!(&:fullname)
+    @disabled_users.sort_by!(&:fullname)
   end
 
   # GET /users/1
