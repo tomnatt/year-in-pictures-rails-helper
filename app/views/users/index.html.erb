@@ -17,7 +17,7 @@
     </thead>
 
     <tbody>
-      <% @admin_users.each do |user| %>
+      <% (@users.try('admin') || []).each do |user| %>
         <tr>
           <td><%= "#{user.fullname}" %></td>
           <td><%= user.email %></td>
@@ -27,7 +27,7 @@
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
-      <% @standard_users.each do |user| %>
+      <% (@users['user'] || []).each do |user| %>
         <tr>
           <td><%= "#{user.fullname}" %></td>
           <td><%= user.email %></td>
@@ -37,7 +37,7 @@
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
-      <% @disabled_users.each do |user| %>
+      <% (@users['disabled'] || []).each do |user| %>
         <tr>
           <td><%= "#{user.fullname}" %></td>
           <td><%= user.email %></td>
