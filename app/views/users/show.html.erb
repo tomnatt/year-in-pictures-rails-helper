@@ -4,6 +4,7 @@
 <ul>
   <li>Email: <%= @user.email %></li>
   <li>Name: <%= @user.fullname %></li>
+  <li>Role: <%= @user.role.capitalize %></li>
 </ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

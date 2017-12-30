@@ -30,7 +30,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         email: 'createnew@example.com',
         password: 'longenoughpassword',
         password_confirmation: 'longenoughpassword',
-        fullname: 'Name'
+        fullname: 'Name',
+        role: 'disabled'
       } }
     end
 
