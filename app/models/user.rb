@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :pictures
 
   validates :fullname, :role, presence: true
+  validates :fullname, uniqueness: true
   validates :role, inclusion: { in: :role }
 
   enum role: %i[disabled user admin]
