@@ -17,7 +17,7 @@
     </thead>
 
     <tbody>
-      <% (@users.try('admin') || []).each do |user| %>
+      <% (@users['admin'] || []).each do |user| %>
         <tr>
           <td><%= "#{user.fullname}" %></td>
           <td><%= user.email %></td>
