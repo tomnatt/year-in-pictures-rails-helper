@@ -33,3 +33,18 @@ user_to_delete:
   email: deleteme@example.com
   fullname: 'Delete User'
   role: 1
+
+admin_user:
+  email: admin@example.com
+  fullname: 'Admin'
+  role: 2
+
+normal_user:
+  email: normal@example.com
+  fullname: 'Normal'
+  role: 1
+
+disabled_user:
+  email: disabled@example.com
+  fullname: 'Disabled'
+  role: 0
