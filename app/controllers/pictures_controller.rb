@@ -5,7 +5,8 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    last_month = Date.current.month - 1
+    # Months run 1..12
+    last_month = Date.current.month > 1 ? Date.current.month - 1 : 12
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
     @pictures = Picture.sort_by_date_user
