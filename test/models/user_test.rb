@@ -15,4 +15,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 'nothing@example.com', user.email
     assert_nil user.id, 'User id should be nil as it is not in database'
   end
+
+  test 'fullname must be unique' do
+    user = users(:duplicate_fullname_user_2)
+    refute user.valid?
+  end
+
+  test 'fullname must be unique case insensitive' do
+    user = users(:duplicate_fullname_insensitive_user)
+    refute user.valid?
+  end
 end

@@ -13,7 +13,6 @@ class Picture < ApplicationRecord
             :alt,
             :image, presence: true
 
-  # validates :photographer, presence: true, if: proc { |p| p.photographer.in?(Picture.photographers) }
   validates :month, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 12 }
   validates :year, numericality: { only_integer: true }
 
