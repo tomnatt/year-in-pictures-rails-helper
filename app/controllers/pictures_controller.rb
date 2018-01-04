@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :check_ownership, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:new, :edit, :create, :update]
 
   # GET /pictures
@@ -78,7 +79,11 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
-  # TODO: change this to get currently active users
+  def check_ownership
+    return if @picture.user == current_user || current_user.admin?
+    redirect_to root_url
+  end
+
   def set_users
     @users = User.all.order(:fullname)
   end

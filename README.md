@@ -17,23 +17,7 @@ The `seed` command will create an admin user with email: 'admin@example.com', pa
 
 ## TODO:
 
-### Deployment
-* ~~Deploy to Heroku~~
-* ~~S3 bucket~~
-** Connect to upload in app
-** Lambda function to resize images
-
-### Authentication
-* Sign-up
-* Hide destructive options
-* Lock pictures to people
-
-### Homepage
-* ~~Add count~~
-* ~~Sort photographs~~
-* Add name of active user
-* Improve CTA
-
-### Input:
-* Hide automatic fields
-* WYSIWYG helpers
+### File upload and S3
+* Create S3 bucket
+* Connect to upload in app
+* Lambda function to resize images
