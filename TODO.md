@@ -1,21 +1,8 @@
-## Step 1
+## Step
 
-* Add admin user (admin field in db)
-* Admin can modify users, see everything and change everything
-
-## Step 2
-
-* Is a disabled user properly disabled?
-
-### Authentication
-* Is a disabled user disabled?
-* Does a normal user have read / write / edit powers over their own stuff?
-* Does an admin user have magic admin powers?
+* month listing page is admin only
 
 ### Homepage
-* ~~Add count~~
-* ~~Sort photographs~~
-* ~~Add name of active user~~
 * Update submissions pills to work at end of month (not reference previous)
 * Add month selector to submission pills
 * Improve CTA

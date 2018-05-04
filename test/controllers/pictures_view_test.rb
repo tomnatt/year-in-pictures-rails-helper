@@ -20,4 +20,12 @@ class PicturesViewTest < ActionDispatch::IntegrationTest
     owned_pictures = @user.pictures
     assert_equal owned_pictures.count, displayed_pictures.count
   end
+
+  test 'index page lists all images for admin' do
+    sign_out @user
+    sign_in users(:admin_user)
+    get pictures_url
+    displayed_pictures = css_select 'tbody > tr'
+    assert_equal Picture.count, displayed_pictures.count
+  end
 end

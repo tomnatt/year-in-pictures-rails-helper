@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
     last_month = Date.current.month > 1 ? Date.current.month - 1 : 12
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
-    @pictures = Picture.sorted_filtered_for_user(current_user)
+    @pictures = set_picture_list
 
     # Construct a hash of { photographer => photo_submitted? }
     @photographers = {}
@@ -86,6 +86,10 @@ class PicturesController < ApplicationController
 
   def set_users
     @users = User.all.order(:fullname)
+  end
+
+  def set_picture_list
+    current_user.admin? ? Picture.sort_by_date_user : Picture.sorted_filtered_for_user(current_user)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
