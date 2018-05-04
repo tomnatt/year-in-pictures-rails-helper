@@ -21,8 +21,13 @@ class Picture < ApplicationRecord
 
   scope :sort_by_date_user, lambda {
     joins('left join users on pictures.user_id = users.id')
+      .order(year: :desc)
       .order(month: :desc)
       .order('users.fullname asc')
+  }
+
+  scope :sorted_filtered_for_user, lambda { |user|
+    sort_by_date_user.where(user_id: user.id)
   }
 
   def default_values

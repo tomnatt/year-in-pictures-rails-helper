@@ -48,3 +48,8 @@ disabled_user:
   email: disabled@example.com
   fullname: 'Disabled'
   role: 0
+
+view_test_user_1:
+  email: vtu1@example.com
+  fullname: 'Steve'
+  role: 1
