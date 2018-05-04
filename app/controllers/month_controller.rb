@@ -1,4 +1,6 @@
 class MonthController < ApplicationController
+  before_action :check_admin
+
   def show
     @pictures = []
     month = params[:month]
