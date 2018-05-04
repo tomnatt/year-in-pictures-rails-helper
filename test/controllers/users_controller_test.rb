@@ -4,12 +4,19 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @user = users(:user_one)
+    @user = users(:admin_user)
     sign_in @user
   end
 
   test 'must require authentication' do
     sign_out @user
+    get users_url
+    assert_response :redirect
+  end
+
+  test 'user must be admin' do
+    sign_out @user
+    sign_in users(:user_one)
     get users_url
     assert_response :redirect
   end

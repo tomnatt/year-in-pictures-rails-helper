@@ -1,15 +1,9 @@
 ## Step 1
 
-Someone authenticated can:
-* see all submissions on dashboard (coloured pills)
-* see and modify their own photos
-
-## Step 2
-
 * Add admin user (admin field in db)
 * Admin can modify users, see everything and change everything
 
-## Step 3
+## Step 2
 
 * Is a disabled user properly disabled?
 
