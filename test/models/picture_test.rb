@@ -6,7 +6,7 @@ class PictureTest < ActiveSupport::TestCase
   end
 
   test 'correct image filename' do
-    expected_filename = "#{@placeholder_picture.month}-testone.png"
+    expected_filename = "#{get_month(@placeholder_picture.month)}-testone.png"
     assert_equal expected_filename, @placeholder_picture.image, 'Incorrectly generated image filename'
   end
 
@@ -18,14 +18,14 @@ class PictureTest < ActiveSupport::TestCase
     assert_equal 'Placeholder', pic.alt, 'Image alt should have been Placeholder'
     assert_equal 'Placeholder', pic.image_title, 'Image title should have been Placeholder'
 
-    expected_filename = "#{pic.month}-invaliduser.png"
-    assert_equal expected_filename, pic.image, 'Image title was incorrect'
+    expected_filename = "#{get_month(pic.month)}-invaliduser.png"
+    assert_equal expected_filename, pic.image, 'Image filename was incorrect'
   end
 
   test 'correct output format' do
     expected_output = <<OUTPUT
   -
-    image: #{@placeholder_picture.month}-testone.png
+    image: #{get_month(@placeholder_picture.month)}-testone.png
     image_title: "Placeholder"
     caption: "Placeholder"
     description: "Placeholder"
@@ -34,5 +34,11 @@ class PictureTest < ActiveSupport::TestCase
 OUTPUT
 
     assert_equal expected_output, @placeholder_picture.yaml_output, 'YAML output has changed'
+  end
+
+  # Prefix the month with a 0 if it's single digit
+  def get_month(month)
+    month = month.to_s
+    month.length == 2 ? month : "0#{month}"
   end
 end
