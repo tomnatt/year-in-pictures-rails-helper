@@ -9,6 +9,10 @@ Someone authenticated can:
 * Add admin user (admin field in db)
 * Admin can modify users, see everything and change everything
 
+## Step 3
+
+* Is a disabled user properly disabled?
+
 ### Authentication
 * Is a disabled user disabled?
 * Does a normal user have read / write / edit powers over their own stuff?
@@ -18,6 +22,8 @@ Someone authenticated can:
 * ~~Add count~~
 * ~~Sort photographs~~
 * ~~Add name of active user~~
+* Update submissions pills to work at end of month (not reference previous)
+* Add month selector to submission pills
 * Improve CTA
 
 ### Input page:

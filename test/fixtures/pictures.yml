@@ -29,3 +29,13 @@ vtu1_january:
   month: 1
   year: 2018
   image: 01-steve.jpg
+
+vtu1_february:
+  user: view_test_user_1
+  image_title: View Test Title 2
+  caption: View Test Caption 2
+  description: View Test Description 2
+  alt: View Test Alt 2
+  month: 2
+  year: 2018
+  image: 02-steve.jpg

@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
     last_month = Date.current.month > 1 ? Date.current.month - 1 : 12
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
-    @pictures = Picture.sort_by_date_user
+    @pictures = Picture.sorted_filtered_for_user(current_user)
 
     # Construct a hash of { photographer => photo_submitted? }
     @photographers = {}
