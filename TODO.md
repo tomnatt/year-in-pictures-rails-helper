@@ -17,7 +17,7 @@ Someone authenticated can:
 ### Homepage
 * ~~Add count~~
 * ~~Sort photographs~~
-* Add name of active user
+* ~~Add name of active user~~
 * Improve CTA
 
 ### Input page:
