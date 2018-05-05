@@ -62,8 +62,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "year-in-pictures-rails-helper_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # TODO: set this for Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ActionMailer::Base.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    user_name:            ENV['SENDGRID_USERNAME'],
+    password:             ENV['SENDGRID_PASSWORD'],
+    domain:               'heroku.com',
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
