@@ -1,3 +1,5 @@
+require 'date_service'
+
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   before_action :check_ownership, only: [:show, :edit, :update, :destroy]
@@ -6,8 +8,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    # Months run 1..12
-    last_month = Date.current.month > 1 ? Date.current.month - 1 : 12
+    last_month = DateService.define_last_month
     @last_month_name = Date::MONTHNAMES[last_month]
     @last_month_pictures = Picture.where(month: last_month)
     @pictures = set_picture_list
