@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "year-in-pictures-rails-helper_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['APPLICATION_URL'] }
 
   ActionMailer::Base.smtp_settings = {
     address:              'smtp.sendgrid.net',
