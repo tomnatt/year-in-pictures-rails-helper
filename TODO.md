@@ -1,18 +1,18 @@
 ## Step
-* Check password changing for non-admins
-
-### Homepage
-* Add month selector to submission pills
-* Improve CTA
-
-### Input page:
+* Select correct month (as per DateService)
 * Hide automatic fields
 * Make input box bigger
 * Select the correct user
+
+### Homepage
+* Add month selector to submission pills
+* Add link to password change
+* Improve CTA
+
+### Input page:
 * WYSIWYG helpers
 
 ### User pages
-* Check through admin screens
 * Bulk create?
 
 ## Rollout to users
