@@ -10,6 +10,37 @@ dan_january:
   year: 2017
   image: 01-testone.jpg
 
+user_one_picture_to_delete:
+  user: user_one
+  image_title: will be deleted
+  caption: my caption
+  description: my description
+  alt: my alt 1
+  month: 1
+  year: 2017
+  image: 01-testone.jpg
+
+user_one_picture_to_delete_2:
+  user: user_one
+  image_title: will be deleted as well
+  caption: my caption
+  description: my description
+  alt: my alt 1
+  month: 1
+  year: 2017
+  image: 01-testone.jpg
+
+user_two_picture_cant_delete:
+  user: user_two
+  image_title: will not be deleted
+  caption: my caption
+  description: my description
+  alt: my alt
+  month: 1
+  year: 2017
+  image: 01-testtwo.jpg
+
+
 tom_january:
   user: user_two
   image_title: my title 2
