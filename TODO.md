@@ -6,10 +6,9 @@
 
 ### Homepage
 * Add month selector to submission pills
-* Add link to password change
-* Improve CTA
 
 ### Input page:
+* Images to make it clear what the input means
 * WYSIWYG helpers
 
 ### User pages
