@@ -44,12 +44,23 @@
 
     <div class="form-group col">
       <%= form.label :user_id, 'Photographer' %>
-      <%= form.collection_select :user_id,
+      <%- if current_user.admin? %>
+        <%= form.collection_select :user_id,
                                  @users,
                                  :id,
                                  :fullname,
                                  { prompt: true },
                                  { id: :picture_user_id } %>
+      <%- else %>
+        <%= form.collection_select :user_id,
+                                   @users,
+                                   :id,
+                                   :fullname,
+                                   { prompt: true },
+                                   { id: :picture_user_id,
+                                     disabled: true
+                                   } %>
+       <%- end %>
     </div>
 
     <div class="form-group col">
