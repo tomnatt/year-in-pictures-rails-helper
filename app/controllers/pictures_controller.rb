@@ -87,7 +87,7 @@ class PicturesController < ApplicationController
   end
 
   def check_ownership(id)
-    return true if id == current_user.id || current_user.admin?
+    return true if id.to_i == current_user.id.to_i || current_user.admin?
     false
   end
 

@@ -4,12 +4,13 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in users(:user_one)
+    @user = users(:user_one)
+    login_as @user
     @picture = pictures(:dan_january)
   end
 
   test 'must require authentication' do
-    sign_out users(:user_one)
+    sign_out @user
     get pictures_url
     assert_response :redirect
   end
