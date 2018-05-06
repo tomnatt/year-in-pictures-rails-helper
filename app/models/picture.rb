@@ -1,3 +1,5 @@
+require 'date_service'
+
 # Picture model
 class Picture < ApplicationRecord
   attr_reader :photographers
@@ -31,15 +33,8 @@ class Picture < ApplicationRecord
   }
 
   def default_values
-    # Default to last month, taking care of January
-    now = Date.current
-    if now.month == 1
-      self.month ||= 12
-      self.year ||= now.year - 1
-    else
-      self.month ||= now.month - 1
-      self.year ||= now.year
-    end
+    self.month ||= DateService.define_last_month
+    self.year ||= DateService.year_for_last_month
   end
 
   def populate_image_file(extension = 'jpg')
