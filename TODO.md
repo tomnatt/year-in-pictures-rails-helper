@@ -1,9 +1,3 @@
-## Step
-* Select correct month (as per DateService)
-* Hide automatic fields
-* Make input box bigger
-* Select the correct user
-
 ### Homepage
 * Add month selector to submission pills
 

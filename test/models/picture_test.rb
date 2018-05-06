@@ -36,6 +36,13 @@ OUTPUT
     assert_equal expected_output, @placeholder_picture.yaml_output, 'YAML output has changed'
   end
 
+  test 'correct default date for early Feb' do
+    travel_to Time.new(2018, 2, 2)
+    pic = Picture.new
+    assert_equal 1, pic.month
+    assert_equal 2018, pic.year
+  end
+
   # Prefix the month with a 0 if it's single digit
   def get_month(month)
     month = month.to_s

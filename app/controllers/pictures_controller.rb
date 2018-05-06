@@ -2,7 +2,7 @@ require 'date_service'
 
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :check_ownership, only: [:show, :edit, :update, :destroy]
+  before_action :check_user_authorised, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:new, :edit, :create, :update]
 
   # GET /pictures
@@ -36,8 +36,8 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
+    redirect_to root_url and return unless check_ownership(picture_params[:user_id])
     @picture = Picture.new(picture_params)
-
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
@@ -52,6 +52,7 @@ class PicturesController < ApplicationController
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
   def update
+    redirect_to root_url and return unless check_ownership(picture_params[:user_id])
     respond_to do |format|
       if @picture.update(picture_params)
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
@@ -80,9 +81,14 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
 
-  def check_ownership
+  def check_user_authorised
     return if @picture.user == current_user || current_user.admin?
     redirect_to root_url
+  end
+
+  def check_ownership(id)
+    return true if id.to_i == current_user.id.to_i || current_user.admin?
+    false
   end
 
   def set_users

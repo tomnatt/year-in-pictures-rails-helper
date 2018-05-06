@@ -17,4 +17,24 @@ class DateServiceTest < ActiveSupport::TestCase
     travel_to Time.new(2018, 1, 1)
     assert_equal 12, DateService.define_last_month
   end
+
+  test 'year for last month is 2018 late in May 2018' do
+    travel_to Time.new(2018, 5, 25)
+    assert_equal 2018, DateService.year_for_last_month
+  end
+
+  test 'year for last month is 2018 late in Jan 2018' do
+    travel_to Time.new(2018, 1, 25)
+    assert_equal 2018, DateService.year_for_last_month
+  end
+
+  test 'year for last month is 2017 early in Jan 2018' do
+    travel_to Time.new(2018, 1, 3)
+    assert_equal 2017, DateService.year_for_last_month
+  end
+
+  test 'year for last month is 2017 late in Dec 2017' do
+    travel_to Time.new(2017, 12, 25)
+    assert_equal 2017, DateService.year_for_last_month
+  end
 end

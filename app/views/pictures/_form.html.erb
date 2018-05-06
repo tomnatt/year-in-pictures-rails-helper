@@ -28,7 +28,7 @@
 
     <div class="form-group col">
       <%= form.label :description %>
-      <%= form.text_area :description, id: :picture_description, class: 'form-control' %>
+      <%= form.text_area :description, id: :picture_description, class: 'form-control', rows: 10 %>
       <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
     </div>
 
@@ -39,17 +39,34 @@
     </div>
   </fieldset>
 
-  <fieldset class="form-group row">
+  <div class="row mb-3 text-right">
+    <div class="col">
+      <small id="extra">Extra information</small>
+    </div>
+  </div>
+
+  <fieldset class="form-group row hidden">
     <legend class="col">You can probably ignore these fields</legend>
 
     <div class="form-group col">
       <%= form.label :user_id, 'Photographer' %>
-      <%= form.collection_select :user_id,
+      <%- if current_user.admin? %>
+        <%= form.collection_select :user_id,
                                  @users,
                                  :id,
                                  :fullname,
                                  { prompt: true },
                                  { id: :picture_user_id } %>
+      <%- else %>
+        <%= form.collection_select :user_id,
+                                   @users,
+                                   :id,
+                                   :fullname,
+                                   { prompt: true },
+                                   { id: :picture_user_id,
+                                     disabled: true
+                                   } %>
+       <%- end %>
     </div>
 
     <div class="form-group col">

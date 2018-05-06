@@ -4,12 +4,13 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    sign_in users(:user_one)
+    @user = users(:user_one)
+    login_as @user
     @picture = pictures(:dan_january)
   end
 
   test 'must require authentication' do
-    sign_out users(:user_one)
+    sign_out @user
     get pictures_url
     assert_response :redirect
   end
@@ -64,9 +65,27 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to picture_url(@picture)
   end
 
-  test 'should destroy picture' do
+  test 'should destroy picture if owner' do
     assert_difference('Picture.count', -1) do
-      delete picture_url(@picture)
+      delete picture_url(pictures(:user_one_picture_to_delete))
+    end
+
+    assert_redirected_to pictures_url
+  end
+
+  test 'should not destroy picture if not owner' do
+    assert_no_difference('Picture.count') do
+      delete picture_url(pictures(:user_two_picture_cant_delete))
+    end
+
+    assert_redirected_to root_url
+  end
+
+  test 'admin should be able to delete any picture' do
+    sign_out @user
+    login_as users(:admin_user)
+    assert_difference('Picture.count', -1) do
+      delete picture_url(pictures(:user_one_picture_to_delete))
     end
 
     assert_redirected_to pictures_url

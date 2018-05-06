@@ -17,3 +17,11 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+// Hide additional information
+$(function() {
+  $(".hidden").hide();
+  $("#extra").click(function() {
+    $(".hidden").toggle();
+  });
+})
