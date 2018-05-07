@@ -13,29 +13,32 @@
 
   <fieldset class="form-group row">
     <legend class="col">Enter things here</legend>
+      <div class="col">
 
-    <div class="form-group col">
-      <%= form.label :caption %>
-      <%= form.text_field :caption, id: :picture_caption, class: 'form-control' %>
-      <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
-    </div>
+      <div class="form-group">
+        <%= form.label :caption %>
+        <%= form.text_field :caption, id: :picture_caption, class: 'form-control' %>
+        <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
+      </div>
 
-    <div class="form-group col">
-      <%= form.label :image_title %>
-      <%= form.text_field :image_title, id: :picture_image_title, class: 'form-control' %>
-      <small id="titleHelp" class="form-text text-muted">The title on the image page</small>
-    </div>
+      <div class="form-group">
+        <%= form.label :image_title %>
+        <%= form.text_field :image_title, id: :picture_image_title, class: 'form-control' %>
+        <small id="titleHelp" class="form-text text-muted">The title on the image page</small>
+      </div>
 
-    <div class="form-group col">
-      <%= form.label :description %>
-      <%= form.text_area :description, id: :picture_description, class: 'form-control', rows: 10 %>
-      <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
-    </div>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :picture_description, class: 'form-control', rows: 10 %>
+        <small id="descriptionHelp" class="form-text text-muted">The description on the image page</small>
+      </div>
 
-    <div class="form-group col">
-      <%= form.label :alt %>
-      <%= form.text_field :alt, id: :picture_alt, class: 'form-control' %>
-      <small id="altHelp" class="form-text text-muted">The alt text for the image</small>
+      <div class="form-group">
+        <%= form.label :alt %>
+        <%= form.text_field :alt, id: :picture_alt, class: 'form-control' %>
+        <small id="altHelp" class="form-text text-muted">The alt text for the image</small>
+      </div>
+
     </div>
   </fieldset>
 
@@ -47,48 +50,51 @@
 
   <fieldset class="form-group row hidden">
     <legend class="col">You can probably ignore these fields</legend>
+    <div class="col">
 
-    <div class="form-group col">
-      <%= form.label :user_id, 'Photographer' %>
-      <%- if current_user.admin? %>
-        <%= form.collection_select :user_id,
-                                 @users,
-                                 :id,
-                                 :fullname,
-                                 { prompt: true },
-                                 { id: :picture_user_id } %>
-      <%- else %>
-        <%= form.collection_select :user_id,
+      <div class="form-group">
+        <%= form.label :user_id, 'Photographer' %>
+        <%- if current_user.admin? %>
+          <%= form.collection_select :user_id,
                                    @users,
                                    :id,
                                    :fullname,
                                    { prompt: true },
-                                   { id: :picture_user_id,
-                                     disabled: true
-                                   } %>
-       <%- end %>
-    </div>
+                                   { id: :picture_user_id } %>
+        <%- else %>
+          <%= form.collection_select :user_id,
+                                     @users,
+                                     :id,
+                                     :fullname,
+                                     { prompt: true },
+                                     { id: :picture_user_id,
+                                       disabled: true
+                                     } %>
+         <%- end %>
+      </div>
 
-    <div class="form-group col">
-      <%= form.label :month %>
-      <%= form.select :month,
-                      Date::MONTHNAMES.compact.zip([*1..12]).to_h,
-                      {},
-                      { id: :picture_month, class: 'custom-select' } %>
-    </div>
+      <div class="form-group">
+        <%= form.label :month %>
+        <%= form.select :month,
+                        Date::MONTHNAMES.compact.zip([*1..12]).to_h,
+                        {},
+                        { id: :picture_month, class: 'custom-select' } %>
+      </div>
 
-    <div class="form-group col">
-      <%= form.label :year %>
-      <%= form.select :year,
-                      [Date.current.year - 1, Date.current.year, Date.current.year + 1],
-                      {},
-                      { id: :picture_year, class: 'custom-select' } %>
+      <div class="form-group">
+        <%= form.label :year %>
+        <%= form.select :year,
+                        [Date.current.year - 1, Date.current.year, Date.current.year + 1],
+                        {},
+                        { id: :picture_year, class: 'custom-select' } %>
+      </div>
+
     </div>
   </fieldset>
 
   <div class="actions row">
     <div class="col">
-      <%= form.submit 'Behold my image', class: 'btn btn-primary' %>
+      <%= form.submit 'Save my image', class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>
