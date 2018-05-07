@@ -39,4 +39,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Enable generation of id-based attributes such as label for
+  config.action_view.form_with_generates_ids = true
 end

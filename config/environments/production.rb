@@ -100,4 +100,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Enable generation of id-based attributes such as label for
+  config.action_view.form_with_generates_ids = true
 end
