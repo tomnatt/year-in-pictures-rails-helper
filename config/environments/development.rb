@@ -52,4 +52,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Enable generation of id-based attributes such as label for
+  config.action_view.form_with_generates_ids = true
 end
