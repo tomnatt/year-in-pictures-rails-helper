@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.group_by(&:role)
+    @users = User.all.order(fullname: :asc).group_by(&:role)
   end
 
   # GET /users/1
