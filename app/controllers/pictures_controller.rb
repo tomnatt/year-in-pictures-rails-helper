@@ -13,11 +13,12 @@ class PicturesController < ApplicationController
     @last_month_pictures = Picture.where(month: last_month)
     @pictures = set_picture_list
 
-    # Construct a hash of { photographer => photo_submitted? }
+    # Construct a hash of { photographer => photo_submitted? } then sort
     @photographers = {}
     User.all.each do |user|
       @photographers[user.fullname] = @last_month_pictures.any? { |pic| pic.user == user }
     end
+    @photographers = @photographers.sort_by { |photographer, _picture| photographer }
   end
 
   # GET /pictures/1
