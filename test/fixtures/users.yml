@@ -53,3 +53,13 @@ view_test_user_1:
   email: vtu1@example.com
   fullname: 'Steve'
   role: 1
+
+single_name_user:
+  email: single_name_user@example.com
+  fullname: 'Craig'
+  role: 1
+
+multi_name_user:
+  email: multi_name_user@example.com
+  fullname: 'Tom and Jerry'
+  role: 1

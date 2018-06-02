@@ -38,7 +38,9 @@ class Picture < ApplicationRecord
   end
 
   def populate_image_file(extension = 'jpg')
-    self.image = "#{month.to_s.rjust(2, '0')}-#{user.fullname.delete(' ').downcase}.#{extension}"
+    # delete method is just in case
+    person_name = user.fullname.gsub(' and ', '-').delete(' ').downcase
+    self.image = "#{month.to_s.rjust(2, '0')}-#{person_name}.#{extension}"
   end
 
   # Placeholder picture, for display when a picture is missing
