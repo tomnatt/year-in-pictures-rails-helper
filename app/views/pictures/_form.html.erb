@@ -60,7 +60,8 @@
                                    :id,
                                    :fullname,
                                    { prompt: true },
-                                   { id: :picture_user_id } %>
+                                   { id: :picture_user_id,
+                                     class: 'custom-select' } %>
         <%- else %>
           <%= form.collection_select :user_id,
                                      @users,
@@ -68,8 +69,8 @@
                                      :fullname,
                                      { prompt: true },
                                      { id: :picture_user_id,
-                                       disabled: true
-                                     } %>
+                                       class: 'custom-select',
+                                       disabled: true } %>
          <%- end %>
       </div>
 
