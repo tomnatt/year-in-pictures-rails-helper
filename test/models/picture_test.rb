@@ -43,6 +43,18 @@ OUTPUT
     assert_equal 2018, pic.year
   end
 
+  test 'correct name for image file for single named user' do
+    pic = Picture.placeholder(users(:single_name_user).fullname)
+    expected_filename = "#{get_month(pic.month)}-craig.png"
+    assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
+  end
+
+  test 'correct name for image file for multi-named user' do
+    pic = Picture.placeholder(users(:multi_name_user).fullname)
+    expected_filename = "#{get_month(pic.month)}-tom-jerry.png"
+    assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
+  end
+
   # Prefix the month with a 0 if it's single digit
   def get_month(month)
     month = month.to_s
