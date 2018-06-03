@@ -39,6 +39,11 @@ admin_user:
   fullname: 'Admin'
   role: 2
 
+admin_user_2:
+  email: admin2@example.com
+  fullname: 'Admin2'
+  role: 2
+
 normal_user:
   email: normal@example.com
   fullname: 'Normal'

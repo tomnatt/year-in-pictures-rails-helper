@@ -39,4 +39,13 @@ class UserTest < ActiveSupport::TestCase
     user = users(:disabled_user)
     refute user.active_for_authentication?
   end
+
+  test 'all_active only returns active users' do
+    all_active_users = []
+    users.each do |u|
+      all_active_users << u unless u.disabled?
+    end
+
+    assert_equal all_active_users.count, User.all_active.count
+  end
 end

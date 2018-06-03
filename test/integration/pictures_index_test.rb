@@ -17,9 +17,9 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
 
   test 'index page only lists active users' do
     visit pictures_path
-    assert page.has_content?('Normal'), 'Page does not list normal user'
-    assert page.has_content?('Admin'), 'Page does not list admin user'
-    # refute page.has_content?('Disabled'), 'Page displays disabled user'
+    assert page.has_content?(users(:normal_user).fullname), 'Page does not list normal user'
+    assert page.has_content?(users(:admin_user).fullname), 'Page does not list admin user'
+    refute page.has_content?(users(:disabled_user).fullname), 'Page should not display disabled user'
   end
 
   test 'index page only contains images belonging to user' do
