@@ -11,10 +11,10 @@ class MonthViewTest < ActionDispatch::IntegrationTest
   test 'list view has placeholders for active users' do
     visit month_view_path(month: 3)
 
-    normal_placeholder = Picture.placeholder(users(:normal_user).fullname)
+    normal_placeholder = Picture.placeholder(users(:normal_no_pictures_user).fullname)
     assert page.has_content?(normal_placeholder.image), 'Month view should list active users'
 
-    admin_placeholder = Picture.placeholder(users(:admin_user).fullname)
+    admin_placeholder = Picture.placeholder(users(:admin_no_pictures_user).fullname)
     assert page.has_content?(admin_placeholder.image), 'Month view should list admin users'
 
     disabled_placeholder = Picture.placeholder(users(:disabled_user).fullname)
