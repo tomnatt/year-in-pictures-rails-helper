@@ -27,4 +27,5 @@ end
 # Capybara config
 Capybara.server = :puma, { Silent: true }
 Capybara.default_driver = :webkit
+Capybara.ignore_hidden_elements = true
 Capybara::Webkit.configure(&:block_unknown_urls)
