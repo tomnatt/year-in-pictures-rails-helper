@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PicturesViewTest < ActionDispatch::IntegrationTest
+class PicturesIndexTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
@@ -13,6 +13,13 @@ class PicturesViewTest < ActionDispatch::IntegrationTest
     assert '200', page.status_code
     assert page.has_css?('h1')
     assert_equal "Welcome #{@user.fullname}", page.first(:css, 'h1').text
+  end
+
+  test 'index page only lists active users' do
+    visit pictures_path
+    assert page.has_content?('Normal'), 'Page does not list normal user'
+    assert page.has_content?('Admin'), 'Page does not list admin user'
+    # refute page.has_content?('Disabled'), 'Page displays disabled user'
   end
 
   test 'index page only contains images belonging to user' do
