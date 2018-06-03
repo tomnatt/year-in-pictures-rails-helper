@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
 
     # Construct a hash of { photographer => photo_submitted? } then sort
     @photographers = {}
-    User.all.each do |user|
+    User.all_active.each do |user|
       @photographers[user.fullname] = @last_month_pictures.any? { |pic| pic.user == user }
     end
     @photographers = @photographers.sort_by { |photographer, _picture| photographer }
@@ -93,7 +93,7 @@ class PicturesController < ApplicationController
   end
 
   def set_users
-    @users = User.all.order(:fullname)
+    @users = User.all_active.order(:fullname)
   end
 
   def set_picture_list

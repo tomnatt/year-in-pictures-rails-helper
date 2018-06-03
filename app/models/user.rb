@@ -22,6 +22,11 @@ class User < ApplicationRecord
     'Account is disabled'
   end
 
+  def self.all_active
+    # Role 0 is disabled
+    User.where.not(role: 0)
+  end
+
   def self.find_by_fullname_or_placeholder(fullname)
     user = User.find_by(fullname: fullname)
     return user unless user.nil?
