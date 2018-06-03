@@ -9,9 +9,10 @@ class PicturesViewTest < ActionDispatch::IntegrationTest
   end
 
   test 'index page contains name of authenticated user' do
-    get pictures_url
-    assert_response :success
-    assert_select 'h1', "Welcome #{@user.fullname}"
+    visit pictures_path
+    assert '200', page.status_code
+    assert page.has_css?('h1')
+    assert_equal "Welcome #{@user.fullname}", page.first(:css, 'h1').text
   end
 
   test 'index page only contains images belonging to user' do
