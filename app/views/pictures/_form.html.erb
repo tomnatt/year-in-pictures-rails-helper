@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <fieldset class="form-group row">
-    <legend class="col">Enter things here</legend>
-      <div class="col">
-
+  <div class="row mb-3">
+    <div class="col-md-6">
       <div class="form-group">
         <%= form.label :caption %>
         <%= form.text_field :caption, class: 'form-control' %>
         <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
       </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'caption.png', class: 'img-fluid' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
 
       <div class="form-group">
         <%= form.label :image_title %>
@@ -40,11 +46,15 @@
       </div>
 
     </div>
-  </fieldset>
+
+    <div class="col-md-6">
+      <%= image_tag 'image-page.png', class: 'img-fluid' %>
+    </div>
+  </div>
 
   <div class="row mb-3 text-right">
     <div class="col">
-      <small id="extra">Extra information</small>
+      <small id="extra" class="pointer">Extra information</small>
     </div>
   </div>
 
