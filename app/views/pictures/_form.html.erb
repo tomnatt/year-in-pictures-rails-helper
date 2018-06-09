@@ -11,14 +11,21 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-md-6">
-
       <div class="form-group">
         <%= form.label :caption %>
         <%= form.text_field :caption, class: 'form-control' %>
         <small id="captionHelp" class="form-text text-muted">The caption on the homepage</small>
       </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'caption.png', class: 'img-fluid' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
 
       <div class="form-group">
         <%= form.label :image_title %>
@@ -41,7 +48,6 @@
     </div>
 
     <div class="col-md-6">
-      <%= image_tag 'caption.png', class: 'img-fluid' %>
       <%= image_tag 'image-page.png', class: 'img-fluid' %>
     </div>
   </div>
