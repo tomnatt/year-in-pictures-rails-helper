@@ -9,9 +9,7 @@ class PicturesFormTest < ActionDispatch::IntegrationTest
   end
 
   test 'input form only lists active users' do
-    # Disable Javascript by using the rack driver
-    Capybara.current_driver = :rack_test
-
+    disable_javascript
     visit new_picture_path
 
     assert page.has_content?('New Picture')
@@ -25,17 +23,15 @@ class PicturesFormTest < ActionDispatch::IntegrationTest
   test 'additional data is hidden on inital page load' do
     visit new_picture_path
 
-    assert page.has_content?('Extra information')
-    refute page.has_content?('You can probably ignore these fields')
+    assert page.has_content?('Extra information'), 'Words should be visible'
+    refute page.has_content?('You can probably ignore these fields'), 'With js enable words should not be visible'
   end
 
   test 'additional data is visible when javascript disabled on inital page load' do
-    # Disable Javascript by using the rack driver
-    Capybara.current_driver = :rack_test
-
+    disable_javascript
     visit new_picture_path
 
-    assert page.has_content?('Extra information')
-    assert page.has_content?('You can probably ignore these fields')
+    assert page.has_content?('Extra information'), 'Words should be visible'
+    assert page.has_content?('You can probably ignore these fields'), 'With js disabled, words should be visible'
   end
 end

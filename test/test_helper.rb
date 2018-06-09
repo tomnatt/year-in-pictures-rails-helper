@@ -16,6 +16,11 @@ class ActionDispatch::IntegrationTest
   # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
 
+  def disable_javascript
+    # Disable Javascript by using the rack driver
+    Capybara.current_driver = :rack_test
+  end
+
   # Reset sessions and driver between tests
   # Use super wherever this method is redefined in your individual test classes
   def teardown

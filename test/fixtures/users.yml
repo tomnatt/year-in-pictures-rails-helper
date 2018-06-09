@@ -44,9 +44,19 @@ admin_user_2:
   fullname: 'Admin2'
   role: 2
 
+admin_no_pictures_user:
+  email: adminnopictures@example.com
+  fullname: 'Admin no pictures'
+  role: 2
+
 normal_user:
   email: normal@example.com
   fullname: 'Normal'
+  role: 1
+
+normal_no_pictures_user:
+  email: normalwithnopictures@example.com
+  fullname: 'Normal no pictures'
   role: 1
 
 disabled_user:
