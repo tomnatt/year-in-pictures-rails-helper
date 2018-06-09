@@ -11,9 +11,8 @@
     </div>
   <% end %>
 
-  <fieldset class="form-group row">
-    <legend class="col">Enter things here</legend>
-      <div class="col">
+  <div class="row">
+    <div class="col-md-6">
 
       <div class="form-group">
         <%= form.label :caption %>
@@ -40,7 +39,12 @@
       </div>
 
     </div>
-  </fieldset>
+
+    <div class="col-md-6">
+      <%= image_tag 'caption.png', class: 'img-fluid' %>
+      <%= image_tag 'image-page.png', class: 'img-fluid' %>
+    </div>
+  </div>
 
   <div class="row mb-3 text-right">
     <div class="col">
