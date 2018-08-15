@@ -1,5 +1,6 @@
 {
   "name": "year-in-pictures-rails-helper",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "engines": { "node" : ">=1" }
 }
