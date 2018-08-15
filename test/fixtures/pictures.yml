@@ -90,3 +90,13 @@ normal_user_to_edit:
   month: 3
   year: 2018
   image: 03-normal.jpg
+
+whitespace_to_strip:
+  user: whitespace_user
+  image_title: ' Title for normal picture to be changed '
+  caption: ' Caption for update check   '
+  description: '  Description   '
+  alt: '   Alt    '
+  month: 3
+  year: 2018
+  image: 03-whitespace.jpg

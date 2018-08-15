@@ -55,9 +55,31 @@ OUTPUT
     assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
   end
 
+  test 'strip leading and trailing whitespace on save' do
+    pic = pictures(:whitespace_to_strip)
+    assert leading_trailing_whitespace?(pic.image_title), 'Picture should have whitespace in title'
+    assert leading_trailing_whitespace?(pic.caption), 'Picture should have whitespace in caption'
+    assert leading_trailing_whitespace?(pic.description), 'Picture should have whitespace in description'
+    assert leading_trailing_whitespace?(pic.alt), 'Picture should have whitespace in alt'
+
+    # Save and re-fetch picture
+    pic.save
+    pic = users(:whitespace_user).pictures.take
+
+    refute leading_trailing_whitespace?(pic.image_title), 'Picture should not have whitespace in title'
+    refute leading_trailing_whitespace?(pic.caption), 'Picture should not have whitespace in caption'
+    refute leading_trailing_whitespace?(pic.description), 'Picture should not have whitespace in description'
+    refute leading_trailing_whitespace?(pic.alt), 'Picture should not have whitespace in alt'
+  end
+
   # Prefix the month with a 0 if it's single digit
   def get_month(month)
     month = month.to_s
     month.length == 2 ? month : "0#{month}"
+  end
+
+  # Compares a string with its stripped version (not efficient)
+  def leading_trailing_whitespace?(str)
+    str != str.strip
   end
 end

@@ -20,6 +20,7 @@ class Picture < ApplicationRecord
 
   after_initialize :default_values
   before_validation :populate_image_file
+  before_save :strip_whitespace
 
   scope :sort_by_date_user, lambda {
     joins('left join users on pictures.user_id = users.id')
@@ -41,6 +42,13 @@ class Picture < ApplicationRecord
     # delete method is just in case
     person_name = user.fullname.gsub(' and ', '-').delete(' ').downcase
     self.image = "#{month.to_s.rjust(2, '0')}-#{person_name}.#{extension}"
+  end
+
+  def strip_whitespace
+    image_title.strip!
+    caption.strip!
+    description.strip!
+    alt.strip!
   end
 
   # Placeholder picture, for display when a picture is missing
