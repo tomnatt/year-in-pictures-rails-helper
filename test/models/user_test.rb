@@ -48,4 +48,16 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal all_active_users.count, User.all_active.count
   end
+
+  test 'user has picture for this month' do
+    user = users(:better_guess_user)
+
+    # User should not have a picture for July
+    travel_to Time.new(2018, 7, 25)
+    refute user.picture_for_last_month?, 'User should not have a picture for July'
+
+    # User should have a picture for May
+    travel_to Time.new(2018, 5, 25)
+    assert user.picture_for_last_month?, 'User should have a picture for May'
+  end
 end

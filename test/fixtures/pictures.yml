@@ -100,3 +100,13 @@ whitespace_to_strip:
   month: 3
   year: 2018
   image: 03-whitespace.jpg
+
+already_has_this_month:
+  user: better_guess_user
+  image_title: Picture for May 2018
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 5
+  year: 2018
+  image: 05-better.jpg

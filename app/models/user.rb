@@ -1,3 +1,5 @@
+require 'date_service'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,6 +22,13 @@ class User < ApplicationRecord
   # Custom message for when account disabled
   def inactive_message
     'Account is disabled'
+  end
+
+  # Does this user already have a picture for last month?
+  def picture_for_last_month?
+    month = DateService.define_last_month
+    year = DateService.year_for_last_month
+    Picture.month_year_for_user_count(month, year, self).positive?
   end
 
   def self.all_active
