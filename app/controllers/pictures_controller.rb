@@ -29,6 +29,9 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new
     @picture.user = current_user
+
+    return unless current_user.picture_for_last_month?
+    @picture.month, @picture.year = DateService.increment_last_month
   end
 
   # GET /pictures/1/edit

@@ -34,4 +34,21 @@ class PicturesFormTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Extra information'), 'Words should be visible'
     assert page.has_content?('You can probably ignore these fields'), 'With js disabled, words should be visible'
   end
+
+  test 'correct month is selected' do
+    # Sign in as user with picture
+    sign_out @user
+    sign_in users(:better_guess_user)
+    disable_javascript
+
+    # User has a picture for May so month should bump to June
+    travel_to Time.new(2018, 5, 25)
+    visit new_picture_path
+    assert page.has_select?('picture_month', selected: 'June')
+
+    # User does not have a picture for July and so July should be selected
+    travel_to Time.new(2018, 7, 25)
+    visit new_picture_path
+    assert page.has_select?('picture_month', selected: 'July')
+  end
 end
