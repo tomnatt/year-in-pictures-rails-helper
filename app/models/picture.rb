@@ -33,7 +33,7 @@ class Picture < ApplicationRecord
     sort_by_date_user.where(user_id: user.id)
   }
 
-  scope :month_year_for_user, lambda { |month, year, user|
+  scope :month_year_for_user_count, lambda { |month, year, user|
     where(user_id: user.id)
       .where(month: month)
       .where(year: year)

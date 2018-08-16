@@ -28,7 +28,7 @@ class User < ApplicationRecord
   def picture_for_last_month?
     month = DateService.define_last_month
     year = DateService.year_for_last_month
-    Picture.month_year_for_user(month, year, self).positive?
+    Picture.month_year_for_user_count(month, year, self).positive?
   end
 
   def self.all_active
