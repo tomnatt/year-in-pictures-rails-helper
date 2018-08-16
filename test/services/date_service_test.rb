@@ -37,4 +37,32 @@ class DateServiceTest < ActiveSupport::TestCase
     travel_to Time.new(2017, 12, 25)
     assert_equal 2017, DateService.year_for_last_month
   end
+
+  test 'month and year when incrementing last month from late May 2018' do
+    travel_to Time.new(2018, 5, 25)
+    month, year = DateService.increment_last_month
+    assert_equal 6, month, 'Month should be June'
+    assert_equal 2018, year, 'Year should be 2018'
+  end
+
+  test 'month and year when incrementing last month from early May 2018' do
+    travel_to Time.new(2018, 5, 5)
+    month, year = DateService.increment_last_month
+    assert_equal 5, month, 'Month should be May'
+    assert_equal 2018, year, 'Year should be 2018'
+  end
+
+  test 'month and year when incrementing last month in early Jan 2018' do
+    travel_to Time.new(2018, 1, 5)
+    month, year = DateService.increment_last_month
+    assert_equal 1, month, 'Month should be January'
+    assert_equal 2018, year, 'Year should be 2018'
+  end
+
+  test 'month and year when incrementing last month in late Dec 2017' do
+    travel_to Time.new(2017, 12, 25)
+    month, year = DateService.increment_last_month
+    assert_equal 1, month, 'Month should be January'
+    assert_equal 2018, year, 'Year should be 2018'
+  end
 end
