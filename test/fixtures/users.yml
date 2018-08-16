@@ -83,3 +83,8 @@ whitespace_user:
   email: whitespace_user@example.com
   fullname: 'White'
   role: 1
+
+better_guess_user:
+  email: better_guess_user@example.com
+  fullname: 'Better'
+  role: 1
