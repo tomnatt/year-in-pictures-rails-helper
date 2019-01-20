@@ -79,6 +79,11 @@ multi_name_user:
   fullname: 'Tom and Jerry'
   role: 1
 
+two_name_user:
+  email: two_name_user@example.com
+  fullname: 'Angry Wiggleforth'
+  role: 1
+
 whitespace_user:
   email: whitespace_user@example.com
   fullname: 'White'
