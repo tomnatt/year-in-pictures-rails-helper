@@ -46,8 +46,11 @@ class Picture < ApplicationRecord
   end
 
   def populate_image_file(extension = 'jpg')
-    # delete method is just in case
-    person_name = user.fullname.gsub(' and ', '-').delete(' ').downcase
+    # "X and Y" to "x-y", "A B" to "a_b"
+    person_name = user.fullname
+                      .gsub(' and ', '-')
+                      .tr(' ', '_')
+                      .downcase
     self.image = "#{month.to_s.rjust(2, '0')}-#{person_name}.#{extension}"
   end
 

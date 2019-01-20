@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PictureTest < ActiveSupport::TestCase
   setup do
-    @placeholder_picture = Picture.placeholder('test one')
+    @placeholder_picture = Picture.placeholder('TestOne')
   end
 
   test 'correct image filename' do
@@ -11,7 +11,7 @@ class PictureTest < ActiveSupport::TestCase
   end
 
   test 'placeholder with invalid user' do
-    pic = Picture.placeholder('invalid user')
+    pic = Picture.placeholder('InvalidUser')
     assert_equal 'Placeholder', pic.image_title, 'Image title should have been Placeholder'
     assert_equal 'Placeholder', pic.caption, 'Image caption should have been Placeholder'
     assert_equal 'Placeholder', pic.description, 'Image description should have been Placeholder'
@@ -52,6 +52,12 @@ OUTPUT
   test 'correct name for image file for multi-named user' do
     pic = Picture.placeholder(users(:multi_name_user).fullname)
     expected_filename = "#{get_month(pic.month)}-tom-jerry.png"
+    assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
+  end
+
+  test 'correct name for image file for forename surname user' do
+    pic = Picture.placeholder(users(:two_name_user).fullname)
+    expected_filename = "#{get_month(pic.month)}-angry_wiggleforth.png"
     assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
   end
 
