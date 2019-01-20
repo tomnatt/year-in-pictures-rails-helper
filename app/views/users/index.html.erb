@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col">
     <h1>Users</h1>
-    <p>Signed in as <%= current_user.fullname %></p>
+    <div class="row">
+      <p class="col">Signed in as <%= current_user.fullname %></p>
+      <p class="col-8">Admins: <%= @admins %>, Users: <%= @photographers %>, Disabled: <%= @disabled %></p>
+    </div>
     <p><%= link_to 'New User', new_user_path %></p>
   </div>
 </div>
