@@ -88,3 +88,18 @@ better_guess_user:
   email: better_guess_user@example.com
   fullname: 'Better'
   role: 1
+
+month_view_admin_user:
+  email: month_view_admin_user@example.com
+  fullname: 'Month Admin'
+  role: 2
+
+month_view_normal_user:
+  email: month_view_normal_user@example.com
+  fullname: 'Month Normal'
+  role: 1
+
+month_view_disabed_user:
+  email: month_view_disabled_user@example.com
+  fullname: 'Month Disabled'
+  role: 0

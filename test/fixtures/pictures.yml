@@ -110,3 +110,43 @@ already_has_this_month:
   month: 5
   year: 2018
   image: 05-better.jpg
+
+month_view_admin:
+  user: month_view_admin_user
+  image_title: Admin Picture for August 2018
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 8
+  year: 2018
+  image: 08-month_admin.jpg
+
+month_view_normal:
+  user: month_view_normal_user
+  image_title: Normal Picture for August 2018
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 8
+  year: 2018
+  image: 08-month_normal.jpg
+
+month_view_normal_wrong_year:
+  user: month_view_normal_user
+  image_title: Normal Picture for August 2019
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 8
+  year: 2019
+  image: 08-month_normal.jpg
+
+month_view_disabled:
+  user: month_view_disabed_user
+  image_title: Disabled Picture for August 2018
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 8
+  year: 2018
+  image: 08-month_disabled.jpg
