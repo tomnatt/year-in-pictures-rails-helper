@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
   def index
     last_month = DateService.define_last_month
     @last_month_name = Date::MONTHNAMES[last_month]
-    @last_month_pictures = Picture.where(month: last_month)
+    @last_month_pictures = Picture.where(month: last_month, year: DateService.year_for_last_month)
     @pictures = set_picture_list
 
     # Construct a hash of { photographer => photo_submitted? } then sort
