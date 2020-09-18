@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# Test the pictures form
 class PicturesFormTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
@@ -42,12 +43,12 @@ class PicturesFormTest < ActionDispatch::IntegrationTest
     disable_javascript
 
     # User has a picture for May so month should bump to June
-    travel_to Time.new(2018, 5, 25)
+    travel_to Time.new(2018, 5, 25).in_time_zone
     visit new_picture_path
     assert page.has_select?('picture_month', selected: 'June')
 
     # User does not have a picture for July and so July should be selected
-    travel_to Time.new(2018, 7, 25)
+    travel_to Time.new(2018, 7, 25).in_time_zone
     visit new_picture_path
     assert page.has_select?('picture_month', selected: 'July')
   end
