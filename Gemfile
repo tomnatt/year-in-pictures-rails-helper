@@ -41,6 +41,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'capybara-webkit', git: 'https://github.com/thoughtbot/capybara-webkit.git'
+  gem 'rubocop'
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
