@@ -11,3 +11,9 @@ Style/FrozenStringLiteralComment:
 
 Metrics/LineLength:
   Max: 120
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/RefuteMethods:
+  Enabled: false
