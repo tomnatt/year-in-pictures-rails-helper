@@ -6,9 +6,6 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
-
 Style/Documentation:
   Enabled: false
 
