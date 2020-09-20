@@ -18,6 +18,9 @@ Style/FrozenStringLiteralComment:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+Rails/BulkChangeTable:
+  Enabled: false
+
 Rails/DynamicFindBy:
   Enabled: false
 
