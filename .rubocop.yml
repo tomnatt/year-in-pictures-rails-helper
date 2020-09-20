@@ -3,6 +3,9 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
 
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+
 Layout/LineLength:
   Max: 120
 
@@ -22,6 +25,9 @@ Rails/BulkChangeTable:
   Enabled: false
 
 Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/FilePath:
   Enabled: false
 
 Rails/RefuteMethods:

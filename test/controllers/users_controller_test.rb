@@ -34,11 +34,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should create user' do
     assert_difference('User.count') do
       post users_url, params: { user: {
-        email: 'createnew@example.com',
-        password: 'longenoughpassword',
+        email:                 'createnew@example.com',
+        password:              'longenoughpassword',
         password_confirmation: 'longenoughpassword',
-        fullname: 'Name',
-        role: 'disabled'
+        fullname:              'Name',
+        role:                  'disabled'
       } }
     end
 
