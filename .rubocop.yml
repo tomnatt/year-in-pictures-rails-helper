@@ -3,6 +3,9 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
 
+Layout/LineLength:
+  Max: 120
+
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
@@ -14,9 +17,6 @@ Style/FrozenStringLiteralComment:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
-
-Metrics/LineLength:
-  Max: 120
 
 Rails/DynamicFindBy:
   Enabled: false
