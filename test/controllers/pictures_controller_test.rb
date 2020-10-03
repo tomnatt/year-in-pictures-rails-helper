@@ -28,14 +28,14 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   test 'should create picture' do
     assert_difference('Picture.count') do
       post pictures_url, params: { picture: {
-        caption: @picture.caption,
+        caption:     @picture.caption,
         description: @picture.description,
-        image: @picture.image,
+        image:       @picture.image,
         image_title: @picture.image_title,
-        alt: @picture.alt,
-        month: @picture.month,
-        user_id: @picture.user.id,
-        year: @picture.year
+        alt:         @picture.alt,
+        month:       @picture.month,
+        user_id:     @picture.user.id,
+        year:        @picture.year
       } }
     end
 
@@ -54,13 +54,13 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update picture' do
     patch picture_url(@picture), params: { picture: {
-      caption: @picture.caption,
+      caption:     @picture.caption,
       description: @picture.description,
-      image: @picture.image,
+      image:       @picture.image,
       image_title: @picture.image_title,
-      user_id: @picture.user.id,
-      month: @picture.month,
-      year: @picture.year
+      user_id:     @picture.user.id,
+      month:       @picture.month,
+      year:        @picture.year
     } }
     assert_redirected_to picture_url(@picture)
   end

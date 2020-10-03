@@ -31,6 +31,7 @@ class PicturesController < ApplicationController
     @picture.user = current_user
 
     return unless current_user.picture_for_last_month?
+
     @picture.month, @picture.year = DateService.increment_last_month
   end
 
@@ -39,8 +40,10 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   # POST /pictures.json
+  # rubocop:disable Metrics/AbcSize
   def create
     redirect_to root_url and return unless check_ownership(picture_params[:user_id])
+
     @picture = Picture.new(picture_params)
     respond_to do |format|
       if @picture.save
@@ -52,11 +55,14 @@ class PicturesController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
+  # rubocop:disable Metrics/AbcSize
   def update
     redirect_to root_url and return unless check_ownership(picture_params[:user_id])
+
     respond_to do |format|
       if @picture.update(picture_params)
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
@@ -67,6 +73,7 @@ class PicturesController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   # DELETE /pictures/1
   # DELETE /pictures/1.json
@@ -87,11 +94,13 @@ class PicturesController < ApplicationController
 
   def check_user_authorised
     return if @picture.user == current_user || current_user.admin?
+
     redirect_to root_url
   end
 
   def check_ownership(id)
     return true if id.to_i == current_user.id.to_i || current_user.admin?
+
     false
   end
 

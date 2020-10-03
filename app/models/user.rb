@@ -5,13 +5,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :pictures
+  has_many :pictures, dependent: :nullify
 
   validates :fullname, :role, presence: true
   validates :fullname, uniqueness: { case_sensitive: false }
   validates :role, inclusion: { in: :role }
 
-  enum role: %i[disabled user admin]
+  enum role: { disabled: 0, user: 1, admin: 2 }
   after_initialize :set_default_role, if: :new_record?
 
   # Called by Devise to ensure current user is ok to authenticate
@@ -39,6 +39,7 @@ class User < ApplicationRecord
   def self.find_by_fullname_or_placeholder(fullname)
     user = User.find_by(fullname: fullname)
     return user unless user.nil?
+
     User.new(email: 'nothing@example.com', fullname: fullname)
   end
 

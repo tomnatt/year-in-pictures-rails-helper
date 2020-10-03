@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# Test Picture model
 class PictureTest < ActiveSupport::TestCase
   setup do
     @placeholder_picture = Picture.placeholder('TestOne')
@@ -37,7 +38,7 @@ OUTPUT
   end
 
   test 'correct default date for early Feb' do
-    travel_to Time.new(2018, 2, 2)
+    travel_to Time.new(2018, 2, 2).in_time_zone
     pic = Picture.new
     assert_equal 1, pic.month
     assert_equal 2018, pic.year

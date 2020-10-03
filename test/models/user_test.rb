@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# Test User model
 class UserTest < ActiveSupport::TestCase
   test 'find user if present' do
     user = User.find_by_fullname_or_placeholder('test one')
@@ -53,11 +54,11 @@ class UserTest < ActiveSupport::TestCase
     user = users(:better_guess_user)
 
     # User should not have a picture for July
-    travel_to Time.new(2018, 7, 25)
+    travel_to Time.new(2018, 7, 25).in_time_zone
     refute user.picture_for_last_month?, 'User should not have a picture for July'
 
     # User should have a picture for May
-    travel_to Time.new(2018, 5, 25)
+    travel_to Time.new(2018, 5, 25).in_time_zone
     assert user.picture_for_last_month?, 'User should have a picture for May'
   end
 end
