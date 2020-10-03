@@ -60,6 +60,7 @@ end
 # Bootstrap
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'mini_racer'
 
 # Authentication
 gem 'devise'
