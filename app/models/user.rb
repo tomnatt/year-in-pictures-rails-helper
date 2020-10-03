@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :pictures
+  has_many :pictures, dependent: :nullify
 
   validates :fullname, :role, presence: true
   validates :fullname, uniqueness: { case_sensitive: false }
