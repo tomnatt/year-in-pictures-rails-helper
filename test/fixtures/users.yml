@@ -14,19 +14,9 @@ user_two:
   fullname: 'test two'
   role: 1
 
-duplicate_fullname_user_1:
+duplicate_fullname_user:
   email: dfu1@example.com
   fullname: 'test three'
-  role: 1
-
-duplicate_fullname_user_2:
-  email: dfu2@example.com
-  fullname: 'test three'
-  role: 1
-
-duplicate_fullname_insensitive_user:
-  email: dfui@example.com
-  fullname: 'TeST TwO'
   role: 1
 
 user_to_delete:
