@@ -2,7 +2,7 @@
   <div class="col">
     <h1>Welcome <%= current_user.fullname %></h1>
 
-    <p class="lead">Please <%= link_to 'add a picture', new_picture_path, id: 'add-picture' %></p>
+    <p class="lead">Please <%= link_to 'add your words', new_picture_path, id: 'add-picture' %></p>
   </div>
 </div>
 
@@ -11,11 +11,32 @@
     <h2>Added for the last month (<%= @last_month_name %>): <%= @last_month_pictures.count %> / <%= @photographers.count %></h2>
   </div>
 
-  <%- @photographers.each do |photographer, submitted| -%>
-  <p class="col-4 alert <%= submitted ? 'alert-success' : 'alert-danger' -%>">
-    <%= photographer %>
+  <%- @photographers.each do |photographer, pic_submitted|
+        if (current_user.admin?) -%>
+
+  <a href="<%= pic_submitted ? edit_picture_path(pic_submitted) : new_picture_path -%>"
+    class="lozenge col-4 alert <%= pic_submitted ? 'alert-success' : 'alert-danger' -%>"
+    id="<%= photographer.gsub(/ /, '-').downcase -%>">
+    <%= photographer -%>
+  </a>
+
+  <%-   elsif (current_user.fullname == photographer) -%>
+
+  <a href="<%= pic_submitted ? edit_picture_path(pic_submitted) : new_picture_path -%>"
+    class="lozenge current-user col-4 alert <%= pic_submitted ? 'alert-success' : 'alert-danger' -%>"
+    id="<%= photographer.gsub(/ /, '-').downcase -%>">
+    <%= photographer -%>
+  </a>
+
+  <%-   else -%>
+
+  <p class="lozenge col-4 alert <%= pic_submitted ? 'alert-success' : 'alert-danger' -%>"
+    id="<%= photographer.gsub(/ /, '-').downcase -%>">
+    <%= photographer -%>
   </p>
-  <%- end -%>
+
+  <%-   end
+      end -%>
 </div>
 
 <div class="row">

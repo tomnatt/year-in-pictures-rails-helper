@@ -98,3 +98,28 @@ month_view_disabed_user:
   email: month_view_disabled_user@example.com
   fullname: 'Month Disabled'
   role: 0
+
+will_have_picture_no_admin_user:
+  email: will_have_picture_no_admin_user@example.com
+  fullname: 'Will have picture no admin'
+  role: 1
+
+will_not_have_picture_no_admin_user:
+  email: will_not_have_picture_no_admin_user@example.com
+  fullname: 'Will not have picture no admin'
+  role: 1
+
+will_not_have_picture_no_admin_logged_out_user:
+  email: will_not_have_picture_no_admin_logged_out_user@example.com
+  fullname: 'Will not have picture no admin logged out'
+  role: 1
+
+will_have_picture_admin_user:
+  email: will_have_picture_admin_user@example.com
+  fullname: 'Will have picture admin'
+  role: 1
+
+will_not_have_picture_admin_user:
+  email: will_not_have_picture_admin_user@example.com
+  fullname: 'Will not have picture admin'
+  role: 1
