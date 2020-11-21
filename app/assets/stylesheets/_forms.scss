@@ -6,3 +6,11 @@
 .pointer {
   cursor: pointer;
 }
+
+a.lozenge.alert-danger:hover {
+  color: #721c24;
+}
+
+a.lozenge.alert-success:hover {
+  color: #155724;
+}
