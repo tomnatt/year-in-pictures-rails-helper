@@ -13,10 +13,10 @@ class PicturesController < ApplicationController
     @last_month_pictures = Picture.where(month: last_month, year: DateService.year_for_last_month)
     @pictures = set_picture_list
 
-    # Construct a hash of { photographer => photo_submitted? } then sort
+    # Construct a hash of { photographer => picture_submitted } then sort
     @photographers = {}
     User.all_active.each do |user|
-      @photographers[user.fullname] = @last_month_pictures.any? { |pic| pic.user == user }
+      @photographers[user.fullname] = @last_month_pictures.find { |pic| pic.user == user }
     end
     @photographers = @photographers.sort_by { |photographer, _picture| photographer }
   end

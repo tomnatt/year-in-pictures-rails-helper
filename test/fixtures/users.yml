@@ -98,3 +98,13 @@ month_view_disabed_user:
   email: month_view_disabled_user@example.com
   fullname: 'Month Disabled'
   role: 0
+
+will_have_picture_user:
+  email: will_have_picture_user@example.com
+  fullname: 'Will have picture'
+  role: 1
+
+will_not_have_picture_user:
+  email: will_not_have_picture_user@example.com
+  fullname: 'Will not have picture'
+  role: 1

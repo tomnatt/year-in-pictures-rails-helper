@@ -29,6 +29,29 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
     assert_equal owned_pictures.count, displayed_pictures.count
   end
 
+  test 'index page links from lozenge to edit picture page if picture exists' do
+    # Add picture for existing user
+    pic = Picture.new(user:        users(:will_have_picture_user),
+                      image_title: 'Pic Exists',
+                      caption:     'Pic Exists',
+                      description: 'Pic Exists',
+                      alt:         'Pic Exists')
+    pic.save!
+
+    # Check it is linked from the index page
+    visit pictures_path
+    photographer_with_picture_element = find 'a#will-have-picture'
+    photographer_with_picture_uri = URI.parse(photographer_with_picture_element['href'])
+    assert_equal edit_picture_path(pic), photographer_with_picture_uri.path, 'Incorrect link target'
+  end
+
+  test 'index page links from lozenge to new picture page if no picture' do
+    visit pictures_path
+    photographer_without_picture_element = find 'a#will-not-have-picture'
+    photographer_without_picture_uri = URI.parse(photographer_without_picture_element['href'])
+    assert_equal new_picture_path, photographer_without_picture_uri.path, 'Incorrect link target'
+  end
+
   test 'index page lists all images for admin' do
     sign_out @user
     sign_in users(:admin_user)
