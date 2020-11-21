@@ -23,7 +23,7 @@
   <%-   elsif (current_user.fullname == photographer) -%>
 
   <a href="<%= pic_submitted ? edit_picture_path(pic_submitted) : new_picture_path -%>"
-    class="lozenge col-4 alert <%= pic_submitted ? 'alert-success' : 'alert-danger' -%>"
+    class="lozenge current-user col-4 alert <%= pic_submitted ? 'alert-success' : 'alert-danger' -%>"
     id="<%= photographer.gsub(/ /, '-').downcase -%>">
     <%= photographer -%>
   </a>
