@@ -12,6 +12,9 @@ Layout/LineLength:
 Metrics/MethodLength:
   Max: 12
 
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
 Style/Documentation:
   Enabled: false
 
