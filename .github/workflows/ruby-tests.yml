@@ -10,20 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-20.04
 
-    # services:
-    #   postgres:
-    #     image: postgres
-    #     env:
-    #       POSTGRES_PASSWORD: supersecret
-    #       POSTGRES_DB: test_database
-    #     options: >-
-    #       --health-cmd pg_isready
-    #       --health-interval 10s
-    #       --health-timeout 5s
-    #       --health-retries 5
     services:
       postgres:
-        image: postgres:11
+        image: postgres:10
         ports:
           - 5432:5432
         env:
@@ -45,35 +34,16 @@ jobs:
       with:
         bundler-cache: true
 
-    # - name: Set up Postgres
-    #   uses: harmon758/postgresql-action@v1
-
     - name: Install Postgres dependencies
       run: sudo apt-get -yqq install libpq-dev
-
-    # - name: Setup test database
-    #   env:
-    #     RAILS_ENV: test
-    #     # DATABASE_URL: postgresql://postgres/test_database
-    #     POSTGRES_HOST: postgres
-    #     POSTGRES_PASSWORD: supersecret
-    #   run: bundle exec rails db:setup
 
     - name: Setup test database
       env:
         PG_DATABASE: yip_helper_test
         PG_HOST: localhost
         PG_USER: postgres
-        PG_PASSWORD: password
+        PG_PASSWORD: postgres
         RAILS_ENV: test
-        # WITH_COVERAGE: true
-        # DISABLE_SPRING: 1
-      # env:
-      #   RAILS_ENV: test
-      #   POSTGRES_HOST: postgres
-      #   POSTGRES_PORT: 5432
-      #   POSTGRES_USER: postgres
-      #   POSTGRES_PASSWORD: postgres
       run: bundle exec rake db:create
 
     - name: Run tests
