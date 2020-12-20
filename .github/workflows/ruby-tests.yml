@@ -15,6 +15,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up Chrome driver
+      uses: nanasess/setup-chromedriver@v1.0.1
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
