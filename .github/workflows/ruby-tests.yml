@@ -10,23 +10,27 @@ jobs:
   test:
     runs-on: ubuntu-20.04
 
+    # services:
+    #   postgres:
+    #     image: postgres
+    #     env:
+    #       POSTGRES_PASSWORD: supersecret
+    #       POSTGRES_DB: test_database
+    #     options: >-
+    #       --health-cmd pg_isready
+    #       --health-interval 10s
+    #       --health-timeout 5s
+    #       --health-retries 5
     services:
       postgres:
-        image: postgres
+        image: postgres:11
+        ports:
+          - 5432:5432
         env:
-          POSTGRES_PASSWORD: supersecret
-          POSTGRES_DB: test_database
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        # ports: ["5432:5432"]
-        # options: >-
-        #   --health-cmd pg_isready
-        #   --health-interval 10s
-        #   --health-timeout 5s
-        #   --health-retries 5
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
 
     steps:
 
@@ -47,13 +51,20 @@ jobs:
     - name: Install Postgres dependencies
       run: sudo apt-get -yqq install libpq-dev
 
+    # - name: Setup test database
+    #   env:
+    #     RAILS_ENV: test
+    #     # DATABASE_URL: postgresql://postgres/test_database
+    #     POSTGRES_HOST: postgres
+    #     POSTGRES_PASSWORD: supersecret
+    #   run: bundle exec rails db:setup
+
     - name: Setup test database
+      run: bundle exec rake db:create
       env:
         RAILS_ENV: test
-        # DATABASE_URL: postgresql://postgres/test_database
-        POSTGRES_HOST: postgres
-        POSTGRES_PASSWORD: supersecret
-      run: bundle exec rails db:setup
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
 
     - name: Run tests
       env:
