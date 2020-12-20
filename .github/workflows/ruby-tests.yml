@@ -63,9 +63,10 @@ jobs:
       run: bundle exec rake db:create
       env:
         RAILS_ENV: test
+        POSTGRES_HOST: localhost
+        POSTGRES_PORT: 5432
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-        POSTGRES_PORT: 5432
 
     - name: Run tests
       env:
