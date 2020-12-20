@@ -48,9 +48,9 @@ jobs:
 
     - name: Run tests
       env:
-        # # The hostname used to communicate with the PostgreSQL service container
-        # POSTGRES_HOST: postgres
-        # # The default PostgreSQL port
-        # POSTGRES_PORT: 5432
+        PG_DATABASE: yip_helper_test
+        PG_HOST: localhost
+        PG_USER: postgres
+        PG_PASSWORD: postgres
         RAILS_ENV: test
       run: bundle exec rake
