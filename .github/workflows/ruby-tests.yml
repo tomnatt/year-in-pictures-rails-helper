@@ -12,9 +12,23 @@ jobs:
 
     services:
 
+      # postgres:
+      #   image: postgres
+      #   ports: ["5432:5432"]
+
+      # Label used to access the service container
       postgres:
+        # Docker Hub image
         image: postgres
-        ports: ["5432:5432"]
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
 
@@ -34,7 +48,9 @@ jobs:
 
     - name: Run tests
       env:
+        # The hostname used to communicate with the PostgreSQL service container
+        POSTGRES_HOST: postgres
+        # The default PostgreSQL port
+        POSTGRES_PORT: 5432
         RAILS_ENV: test
-        PGHOST: 127.0.0.1
-        PGUSER: postgres
       run: bundle exec rake
