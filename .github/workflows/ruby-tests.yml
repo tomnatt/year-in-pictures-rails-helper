@@ -8,8 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    # runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04
 
     # services:
     #   postgres:
@@ -66,6 +65,7 @@ jobs:
         RAILS_ENV: test
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
+        POSTGRES_PORT: 5432
 
     - name: Run tests
       env:
