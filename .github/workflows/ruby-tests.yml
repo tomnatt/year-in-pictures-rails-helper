@@ -12,9 +12,10 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11
+        image: postgres
         env:
           POSTGRES_PASSWORD: supersecret
+          POSTGRES_DB: test_database
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -49,9 +50,8 @@ jobs:
     - name: Setup test database
       env:
         RAILS_ENV: test
-        POSTGRES_HOSTNAME: postgres
+        DATABASE_URL: postgresql://postgres/test_database
         POSTGRES_PASSWORD: supersecret
-        POSTGRES_PORT: 5432
       run: bundle exec rails db:setup
 
     - name: Run tests
