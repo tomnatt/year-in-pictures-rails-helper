@@ -60,13 +60,21 @@ jobs:
     #   run: bundle exec rails db:setup
 
     - name: Setup test database
-      run: bundle exec rake db:create
       env:
+        PG_DATABASE: yip_helper_test
+        PG_HOST: localhost
+        PG_USER: postgres
+        PG_PASSWORD: password
         RAILS_ENV: test
-        POSTGRES_HOST: postgres
-        POSTGRES_PORT: 5432
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+        # WITH_COVERAGE: true
+        # DISABLE_SPRING: 1
+      # env:
+      #   RAILS_ENV: test
+      #   POSTGRES_HOST: postgres
+      #   POSTGRES_PORT: 5432
+      #   POSTGRES_USER: postgres
+      #   POSTGRES_PASSWORD: postgres
+      run: bundle exec rake db:create
 
     - name: Run tests
       env:
