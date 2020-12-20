@@ -32,4 +32,8 @@ jobs:
         bundler-cache: true
 
     - name: Run tests
+      env:
+        RAILS_ENV: test
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
       run: bundle exec rake
