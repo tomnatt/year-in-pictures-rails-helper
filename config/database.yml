@@ -16,6 +16,15 @@ test:
   <<: *default
   database: yip_helper_test
 
+test:
+  <<: *default
+  database: <%= ENV.fetch('PG_DATABASE', 'yip_helper_test') %>
+  host:     <%= ENV.fetch('PG_HOST',  nil) %>
+  username: <%= ENV.fetch('PG_USER', nil) %>
+  password: <%= ENV.fetch('PG_PASSWORD', nil) %>
+  port:     <%= ENV.fetch('PG_PORT', nil) %>
+
+
 production:
   <<: *default
   database: yip_helper_production
