@@ -10,16 +10,19 @@ jobs:
   test:
     runs-on: ubuntu-20.04
 
-    # services:
-
-    #   postgres:
-    #     image: postgres
-    #     # ports: ["5432:5432"]
-    #     options: >-
-    #       --health-cmd pg_isready
-    #       --health-interval 10s
-    #       --health-timeout 5s
-    #       --health-retries 5
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: myapp
+          POSTGRES_DB: myapp_test
+          POSTGRES_PASSWORD: ""
+        ports: ["5432:5432"]
+    options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
 
@@ -29,16 +32,23 @@ jobs:
     - name: Set up Chrome driver
       uses: nanasess/setup-chromedriver@v1.0.1
 
-    - name: Set up Postgres
-      uses: harmon758/postgresql-action@v1
-
-    - name: Install Postgres dependencies
-      run: sudo apt-get -yqq install libpq-dev
-
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+
+    # - name: Set up Postgres
+    #   uses: harmon758/postgresql-action@v1
+
+    - name: Install Postgres dependencies
+      run: sudo apt-get -yqq install libpq-dev
+
+    - name: Setup test database
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: myapp
+      run: bundle exec rails db:setup
 
     - name: Run tests
       env:
