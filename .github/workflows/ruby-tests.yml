@@ -12,17 +12,12 @@ jobs:
 
     services:
 
-      # postgres:
-      #   image: postgres
-      #   ports: ["5432:5432"]
-
-      # Label used to access the service container
       postgres:
-        # Docker Hub image
         image: postgres
+        ports: ['5432:5432']
         # Provide the password for postgres
-        env:
-          POSTGRES_PASSWORD: postgres
+        # env:
+        #   POSTGRES_PASSWORD: postgres
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -39,7 +34,7 @@ jobs:
       uses: nanasess/setup-chromedriver@v1.0.1
 
     - name: Install Postgres dependencies
-      run: sudo apt-get install libpq-dev
+      run: sudo apt-get -yqq install libpq-dev
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
