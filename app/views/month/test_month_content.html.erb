@@ -1,0 +1,11 @@
+<h1>Test results</h1>
+<%- @test_results.each do |photographer, results| -%>
+<div>
+  <h2><%= photographer.fullname %></h2>
+  <ol>
+<%- results.each do |test_name, result| -%>
+    <li><%= test_name %>: <%= result %></li>
+<%- end -%>
+  </ol>
+</div>
+<%- end -%>

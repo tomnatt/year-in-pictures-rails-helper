@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :pictures
 
   get 'month/:month', to: 'month#show', as: 'month_view'
+  get 'month-content-test/:month', to: 'month#test_month_content', as: 'test_month_content'
 end
