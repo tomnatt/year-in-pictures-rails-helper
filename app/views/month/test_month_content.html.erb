@@ -1,10 +1,10 @@
 <h1>Test results</h1>
 <%- @test_results.each do |photographer, results| -%>
-<div>
+<div class="<%= results.values.all? ? 'alert-success' : 'alert-danger' -%>">
   <h2><%= photographer.fullname %></h2>
   <ol>
 <%- results.each do |test_name, result| -%>
-    <li><%= test_name %>: <%= result %></li>
+    <li class="<%= result ? 'alert-success' : 'alert-danger' -%>"><%= test_name %>: <%= result %></li>
 <%- end -%>
   </ol>
 </div>
