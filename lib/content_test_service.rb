@@ -14,4 +14,12 @@ class ContentTestService
     # Otherwise last character is a .
     false
   end
+
+  def self.ellipsis_are_three_dots(text)
+    # If there are four or more dots together
+    return false if text =~ /\.{4,}/
+
+    # Otherwise all is fine
+    true
+  end
 end
