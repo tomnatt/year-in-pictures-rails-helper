@@ -31,7 +31,11 @@ class ContentTestService
     true
   end
 
-  # def self.ends_with_punctuation(text)
-  #   false
-  # end
+  def self.ends_with_punctuation(text)
+    # If the final character is punctuation
+    return true if text =~ /[[:punct:]]$/
+
+    # Otherwise reject
+    false
+  end
 end

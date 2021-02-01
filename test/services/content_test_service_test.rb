@@ -72,21 +72,21 @@ class ContentTestServiceTest < ActiveSupport::TestCase
     assert_not(ContentTestService.i_is_capitalised(text), 'Should reject i in the middle of the phrase')
   end
 
-  # test 'ends_with_punctuation accepts when ends with punctuation' do
-  #   text = 'here are some words.'
-  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+  test 'ends_with_punctuation accepts when ends with punctuation' do
+    text = 'here are some words.'
+    assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
 
-  #   text = 'here are some words?'
-  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+    text = 'here are some words?'
+    assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
 
-  #   text = 'here are some words!'
-  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
-  # end
+    text = 'here are some words!'
+    assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+  end
 
-  # test 'ends_with_punctuation rejects when no ending punctuation' do
-  #   text = 'here are some words'
-  #   assert_not(ContentTestService.ends_with_punctuation(text), 'Should reject when no ending punctuation')
-  # end
+  test 'ends_with_punctuation rejects when no ending punctuation' do
+    text = 'here are some words'
+    assert_not(ContentTestService.ends_with_punctuation(text), 'Should reject when no ending punctuation')
+  end
 
   # test 'runner method runs all tests' do
   # end
