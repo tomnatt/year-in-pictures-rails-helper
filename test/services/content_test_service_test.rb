@@ -88,6 +88,12 @@ class ContentTestServiceTest < ActiveSupport::TestCase
     assert_not(ContentTestService.ends_with_punctuation(text), 'Should reject when no ending punctuation')
   end
 
-  # test 'runner method runs all tests' do
-  # end
+  test 'runner method runs all tests and they pass' do
+    picture = Picture.new(image_title: 'Title',
+                          caption:     'Caption',
+                          description: 'Description.')
+    results = ContentTestService.run_tests(picture)
+    assert(results.keys.count == 7, 'Incorrect number of tests')
+    assert(results.all?, 'All tests should have passed')
+  end
 end

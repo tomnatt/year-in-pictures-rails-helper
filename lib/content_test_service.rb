@@ -1,7 +1,12 @@
 class ContentTestService
   def self.run_tests(picture)
     { 'Title has no ending full stop' => no_ending_fullstop(picture.image_title),
-      'Caption has no ending full stop' => no_ending_fullstop(picture.caption) }
+      'Title ellipsis are correct' => ellipsis_are_three_dots(picture.image_title),
+      'Caption has no ending full stop' => no_ending_fullstop(picture.caption),
+      'Caption ellipsis are correct' => ellipsis_are_three_dots(picture.caption),
+      'Description ends with punctuation' => ends_with_punctuation(picture.description),
+      'Description ellipsis are correct' => ellipsis_are_three_dots(picture.description),
+      'Description I is capitlised' => i_is_capitalised(picture.description) }
   end
 
   def self.no_ending_fullstop(text)
