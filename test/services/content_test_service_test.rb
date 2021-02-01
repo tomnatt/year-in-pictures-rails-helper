@@ -56,6 +56,38 @@ class ContentTestServiceTest < ActiveSupport::TestCase
     assert_not(ContentTestService.ellipsis_are_three_dots(text), 'Should reject more than four dots')
   end
 
+  test 'i_is_capitalised accepts I when capitalised' do
+    text = 'I at the start'
+    assert(ContentTestService.i_is_capitalised(text), 'Should accept capitalised I at the start of the phrase')
+
+    text = 'Placing I in the middle'
+    assert(ContentTestService.i_is_capitalised(text), 'Should accept capitalised I in the middle of the phrase')
+  end
+
+  test 'i_is_capitalised rejects i when not capitalised' do
+    text = 'i at the start'
+    assert_not(ContentTestService.i_is_capitalised(text), 'Should reject i at the start of the phrase')
+
+    text = 'placing i in the middle'
+    assert_not(ContentTestService.i_is_capitalised(text), 'Should reject i in the middle of the phrase')
+  end
+
+  # test 'ends_with_punctuation accepts when ends with punctuation' do
+  #   text = 'here are some words.'
+  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+
+  #   text = 'here are some words?'
+  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+
+  #   text = 'here are some words!'
+  #   assert(ContentTestService.ends_with_punctuation(text), 'Should accept when ending punctuation')
+  # end
+
+  # test 'ends_with_punctuation rejects when no ending punctuation' do
+  #   text = 'here are some words'
+  #   assert_not(ContentTestService.ends_with_punctuation(text), 'Should reject when no ending punctuation')
+  # end
+
   # test 'runner method runs all tests' do
   # end
 end

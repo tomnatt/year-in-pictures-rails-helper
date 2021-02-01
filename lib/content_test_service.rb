@@ -22,4 +22,16 @@ class ContentTestService
     # Otherwise all is fine
     true
   end
+
+  def self.i_is_capitalised(text)
+    # If there is a lower case I at the start or in the middle
+    return false if text =~ /(\A|\s)i\s/
+
+    # Otherwise all is fine
+    true
+  end
+
+  # def self.ends_with_punctuation(text)
+  #   false
+  # end
 end
