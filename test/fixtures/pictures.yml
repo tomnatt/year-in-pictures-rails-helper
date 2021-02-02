@@ -125,7 +125,7 @@ month_view_normal:
   user: month_view_normal_user
   image_title: Normal Picture for August 2018
   caption: Caption
-  description: Description
+  description: Description.
   alt: Alt
   month: 8
   year: 2018

@@ -1,6 +1,7 @@
 <h1>Test results</h1>
 <%- @test_results.each do |photographer, results| -%>
-<div class="<%= results.values.all? ? 'alert-success' : 'alert-danger' -%>">
+<div id="<%= photographer.fullname.downcase.gsub(' ', '-') -%>"
+     class="results <%= results.values.all? ? 'alert-success' : 'alert-danger' -%>">
   <h2><%= photographer.fullname %></h2>
   <ol>
 <%- results.each do |test_name, result| -%>
