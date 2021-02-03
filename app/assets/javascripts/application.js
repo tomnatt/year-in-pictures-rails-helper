@@ -24,3 +24,11 @@ $(function() {
     $(".hidden").toggle();
   });
 })
+
+// Hide content test details
+$(function() {
+  $(".results-list").hide();
+  $(".results h2").click(function() {
+    $(this).parent().find("ol").toggle();
+  });
+})

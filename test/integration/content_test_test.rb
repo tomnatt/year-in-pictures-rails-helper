@@ -9,6 +9,7 @@ class ContentTestTest < ActionDispatch::IntegrationTest
   end
 
   test 'content test shows correct results' do
+    disable_javascript
     visit test_month_content_path(month: 8, year: 2018)
 
     # Check correct number of result blocks
