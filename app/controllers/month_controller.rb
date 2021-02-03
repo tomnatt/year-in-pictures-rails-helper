@@ -1,3 +1,5 @@
+require 'content_test_service'
+
 class MonthController < ApplicationController
   before_action :check_admin
 
@@ -8,6 +10,21 @@ class MonthController < ApplicationController
     return unless month =~ /\A\d{1,2}\z/
 
     @pictures = get_pictures(month, year)
+  end
+
+  def test_month_content
+    @test_results = {}
+    month = params[:month]
+    year = get_year(params[:year])
+    return unless month =~ /\A\d{1,2}\z/
+
+    # for each picture run all tests
+    # { 'Photographer' => { 'test 1' => true, 'test 2' => false } }
+
+    pictures = get_pictures(month, year)
+    pictures.each do |picture|
+      @test_results[picture.user] = ContentTestService.run_tests(picture)
+    end
   end
 
   private
