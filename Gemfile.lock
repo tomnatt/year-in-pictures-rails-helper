@@ -237,7 +237,7 @@ PLATFORMS
 
 DEPENDENCIES
   apparition
-  bootstrap
+  bootstrap (~> 4.0)
   byebug
   capybara
   coffee-rails

@@ -58,7 +58,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Bootstrap
-gem 'bootstrap'
+gem 'bootstrap', '~>4.0'
 gem 'jquery-rails'
 gem 'mini_racer'
 
