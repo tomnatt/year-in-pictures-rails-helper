@@ -112,7 +112,7 @@ class PicturesController < ApplicationController
     current_user.admin? ? Picture.sort_by_date_user : Picture.sorted_filtered_for_user(current_user)
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the accepted list through.
   def picture_params
     params.require(:picture).permit(:user_id,
                                     :image_title,
