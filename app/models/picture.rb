@@ -6,8 +6,7 @@ class Picture < ApplicationRecord
 
   belongs_to :user
 
-  validates :user,
-            :image_title,
+  validates :image_title,
             :caption,
             :description,
             :month,
