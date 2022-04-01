@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    create_success: 'User was successfully created.'
+    update_success: 'User was successfully updated.'
+    destroy_success: 'User was successfully destroyed.'
+  pictures:
+    create_success: 'Picture was successfully created.'
+    update_success: 'Picture was successfully updated.'
+    destroy_success: 'Picture was successfully destroyed.'
