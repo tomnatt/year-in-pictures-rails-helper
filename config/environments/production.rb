@@ -23,7 +23,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV.fetch('RAILS_SERVE_STATIC_FILES', nil).present?
 
   # Compress CSS using a preprocessor.
   config.assets.js_compressor = Uglifier.new(harmony: true)
@@ -66,14 +66,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: ENV['APPLICATION_URL'] }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_URL', nil) }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 587,
-    user_name:            ENV['SENDGRID_USERNAME'],
-    password:             ENV['SENDGRID_PASSWORD'],
+    user_name:            ENV.fetch('SENDGRID_USERNAME', nil),
+    password:             ENV.fetch('SENDGRID_PASSWORD', nil),
     domain:               'heroku.com',
     authentication:       :plain,
     enable_starttls_auto: true
@@ -98,7 +98,7 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
-  if ENV['RAILS_LOG_TO_STDOUT'].present?
+  if ENV.fetch('RAILS_LOG_TO_STDOUT', nil).present?
     logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
