@@ -74,7 +74,7 @@ Rails.application.configure do
     port:                 587,
     user_name:            ENV.fetch('SENDGRID_USERNAME', nil),
     password:             ENV.fetch('SENDGRID_PASSWORD', nil),
-    domain:               'heroku.com',
+    domain:               'koyeb.app',
     authentication:       :plain,
     enable_starttls_auto: true
   }
