@@ -45,10 +45,11 @@ class Picture < ApplicationRecord
   end
 
   def populate_image_file(extension = 'jpg')
-    # "X and Y" to "x-y", "A B" to "a_b"
+    # "X and Y" to "x-y", "A B" to "a_b", "o'bar" to "obar"
     person_name = user.fullname
                       .gsub(' and ', '-')
                       .tr(' ', '_')
+                      .delete("'")
                       .downcase
     self.image = "#{month.to_s.rjust(2, '0')}-#{person_name}.#{extension}"
   end

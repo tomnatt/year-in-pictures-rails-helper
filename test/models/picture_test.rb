@@ -62,6 +62,12 @@ OUTPUT
     assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
   end
 
+  test 'correct name for image file for apostrophe user' do
+    pic = Picture.placeholder(users(:apostrophe_name_user).fullname)
+    expected_filename = "#{get_month(pic.month)}-bob_obrian.png"
+    assert_equal expected_filename, pic.image, 'Generated filename does not match expected filename'
+  end
+
   test 'strip leading and trailing whitespace on save' do
     pic = pictures(:whitespace_to_strip)
     assert leading_trailing_whitespace?(pic.image_title), 'Picture should have whitespace in title'
