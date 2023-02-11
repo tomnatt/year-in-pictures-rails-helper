@@ -74,6 +74,11 @@ two_name_user:
   fullname: 'Angry Wiggleforth'
   role: 1
 
+apostrophe_name_user:
+  email: apostrophe_name_user@example.com
+  fullname: 'Bob O''Brian'
+  role: 1
+
 whitespace_user:
   email: whitespace_user@example.com
   fullname: 'White'
