@@ -36,7 +36,7 @@ class ContentTestTest < ActionDispatch::IntegrationTest
            'Normal user pic should pass overall'
     assert page.find_all("##{normal_user_name.downcase.gsub(' ', '-')} li.alert-success").length == 7,
            'Normal pic should have all successes'
-    assert page.find_all("##{normal_user_name.downcase.gsub(' ', '-')} li.alert-danger").length.zero?,
+    assert page.find_all("##{normal_user_name.downcase.gsub(' ', '-')} li.alert-danger").empty?,
            'Normal pic should have no failures'
 
     # Check is omitting a disabled user pic
