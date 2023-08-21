@@ -83,7 +83,7 @@ class Picture < ApplicationRecord
     image: #{image}
     image_title: "#{image_title}"
     caption: "#{caption}"
-    description: #{description.inspect.gsub(/\\r\\n\\r\\n/, '<br ><br >')}
+    description: #{description.inspect.gsub('\\r\\n\\r\\n', '<br ><br >')}
     alt: #{alt.inspect}
     month: #{Date::MONTHNAMES[month].downcase}
 YAML
