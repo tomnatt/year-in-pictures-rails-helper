@@ -61,7 +61,4 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-
-  # Opt-in to new connection handling behaviour for Rails 7
-  config.active_record.legacy_connection_handling = false
 end
