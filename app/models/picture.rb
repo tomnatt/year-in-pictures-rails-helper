@@ -28,6 +28,10 @@ class Picture < ApplicationRecord
       .order('users.fullname asc')
   }
 
+  scope :sorted_filtered_for_admin, lambda { |year|
+    sort_by_date_user.where(year: year)
+  }
+
   scope :sorted_filtered_for_user, lambda { |user|
     sort_by_date_user.where(user_id: user.id)
   }

@@ -1,3 +1,4 @@
 versions:
   - rubocop
+  - rubocop-capybara
   - rubocop-rails
