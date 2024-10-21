@@ -34,8 +34,8 @@ class Picture < ApplicationRecord
 
   scope :month_year_for_user_count, lambda { |month, year, user|
     where(user_id: user.id)
-      .where(month: month)
-      .where(year: year)
+      .where(month:)
+      .where(year:)
       .count
   }
 

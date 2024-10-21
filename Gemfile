@@ -41,6 +41,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'apparition', github: 'twalpole/apparition'
   gem 'capybara'
+  gem 'ostruct'
   gem 'rubocop'
   gem 'rubocop-rails', require: false
 end

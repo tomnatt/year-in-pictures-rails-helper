@@ -31,7 +31,7 @@ class MonthController < ApplicationController
 
   # Get the pics for the given year and sort by photographer
   def get_pictures(month, year)
-    pictures = Picture.where(month: month, year: year).to_a
+    pictures = Picture.where(month:, year:).to_a
     pictures = pictures.reject { |pic| pic.user.disabled? }
 
     # Sort by photographer

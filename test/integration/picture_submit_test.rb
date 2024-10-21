@@ -22,7 +22,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def submission_for(user)
     sign_in user
-    initial_picture_count = Picture.all.count
+    initial_picture_count = Picture.count
 
     # Start on the index page, click through to add a new picture and check we're in the right place
     visit pictures_path
@@ -38,7 +38,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
 
     # Check the picture has saved and page contents are correct
     assert page.has_content?('Picture was successfully created.'), 'Picture was not successfully submitted'
-    assert_equal initial_picture_count + 1, Picture.all.count, 'Total picture count has not increased by one'
+    assert_equal initial_picture_count + 1, Picture.count, 'Total picture count has not increased by one'
     assert page.has_content?('image_title: "Image title"')
   end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
@@ -46,7 +46,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def update_for(user, picture)
     sign_in user
-    initial_picture_count = Picture.all.count
+    initial_picture_count = Picture.count
     new_title = "New title for #{user.fullname.downcase}"
 
     # Find the right picture and click to edit screen
@@ -61,7 +61,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
 
     # Check the picture has saved and page contents are correct
     assert page.has_content?('Picture was successfully updated.'), 'Picture was not successfully updated'
-    assert_equal initial_picture_count, Picture.all.count, 'Total picture count should not have changed'
+    assert_equal initial_picture_count, Picture.count, 'Total picture count should not have changed'
     assert page.has_content?('caption: "Caption for update check"')
     refute page.has_content?("image_title: \"#{old_title}\"")
     assert page.has_content?("image_title: \"#{new_title}\"")
