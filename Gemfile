@@ -29,6 +29,7 @@ group :development, :test do
   gem 'apparition', github: 'twalpole/apparition'
   gem 'capybara'
   gem 'rubocop'
+  gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false
 end
 
