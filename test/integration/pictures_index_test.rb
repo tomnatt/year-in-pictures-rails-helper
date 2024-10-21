@@ -43,14 +43,14 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
 
     # Check picture belonging to different user is linked from the index page
     visit pictures_path
-    photographer_with_picture_element = find '#will-have-picture-no-admin'
+    photographer_with_picture_element = find_by_id 'will-have-picture-no-admin'
     assert_equal 'a', photographer_with_picture_element.tag_name, 'Incorrect type of element found'
 
     photographer_with_picture_uri = URI.parse(photographer_with_picture_element['href'])
     assert_equal edit_picture_path(pic), photographer_with_picture_uri.path, 'Incorrect link target'
 
     # Check lozenge for different user does not link
-    photographer_without_picture_element = find '#will-not-have-picture-no-admin-logged-out'
+    photographer_without_picture_element = find_by_id 'will-not-have-picture-no-admin-logged-out'
     assert_equal 'p', photographer_without_picture_element.tag_name, 'Incorrect type of element found'
   end
 
@@ -60,14 +60,14 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
 
     # Check add picture page for same user is linked from the index page
     visit pictures_path
-    photographer_without_picture_element = find '#will-not-have-picture-no-admin'
+    photographer_without_picture_element = find_by_id 'will-not-have-picture-no-admin'
     assert_equal 'a', photographer_without_picture_element.tag_name, 'Incorrect type of element found'
 
     photographer_without_picture_uri = URI.parse(photographer_without_picture_element['href'])
     assert_equal new_picture_path, photographer_without_picture_uri.path, 'Incorrect link target'
 
     # Check lozenge for different user does not link
-    photographer_without_picture_element = find '#will-not-have-picture-no-admin-logged-out'
+    photographer_without_picture_element = find_by_id 'will-not-have-picture-no-admin-logged-out'
     assert_equal 'p', photographer_without_picture_element.tag_name, 'Incorrect type of element found'
   end
 
@@ -85,7 +85,7 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
 
     # Check picture belonging to different user is linked from the index page
     visit pictures_path
-    photographer_with_picture_element = find '#will-have-picture-admin'
+    photographer_with_picture_element = find_by_id 'will-have-picture-admin'
     assert_equal 'a', photographer_with_picture_element.tag_name, 'Incorrect type of element found'
 
     photographer_with_picture_uri = URI.parse(photographer_with_picture_element['href'])
@@ -98,7 +98,7 @@ class PicturesIndexTest < ActionDispatch::IntegrationTest
 
     # Check add picture page for different user is linked from the index page
     visit pictures_path
-    photographer_without_picture_element = find '#will-not-have-picture-admin'
+    photographer_without_picture_element = find_by_id 'will-not-have-picture-admin'
     assert_equal 'a', photographer_without_picture_element.tag_name, 'Incorrect type of element found'
 
     photographer_without_picture_uri = URI.parse(photographer_without_picture_element['href'])
