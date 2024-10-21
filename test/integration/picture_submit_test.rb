@@ -50,7 +50,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
     new_title = "New title for #{user.fullname.downcase}"
 
     # Find the right picture and click to edit screen
-    visit pictures_path
+    visit pictures_path(year: picture.year)
     page.first(:css, "a[href=\"#{edit_picture_path(id: picture.id)}\"]").click
     assert_equal edit_picture_path(id: picture.id), page.current_path, 'We are on the wrong page'
 

@@ -109,7 +109,8 @@ class PicturesController < ApplicationController
   end
 
   def set_picture_list
-    current_user.admin? ? Picture.sort_by_date_user : Picture.sorted_filtered_for_user(current_user)
+    year = params[:year] || Date.current.year
+    current_user.admin? ? Picture.sorted_filtered_for_admin(year) : Picture.sorted_filtered_for_user(current_user)
   end
 
   # Never trust parameters from the scary internet, only allow the accepted list through.
