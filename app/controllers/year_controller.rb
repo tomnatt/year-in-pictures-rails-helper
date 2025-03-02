@@ -16,12 +16,6 @@ class YearController < ApplicationController
 
   # Get the pics for the given year and sort by month then photographer
   def get_pictures(year)
-    pictures = Picture.where(year:).to_a
-
-    # .order(month: :asc, ).to_a
-    # (books: { print_year: :desc }, authors: { name: :asc })
-
-    # Sort by photographer
-    pictures.sort_by! { |pic| pic.user.fullname }
+    Picture.where(year:).order(month: :asc, image: :asc).to_a
   end
 end
