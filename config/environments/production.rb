@@ -109,5 +109,8 @@ Rails.application.configure do
 
   # Enable generation of id-based attributes such as label for
   config.action_view.form_with_generates_ids = true
+
+  # Token config
+  config.x.token.year = ENV.fetch('YIP_YEAR_TOKEN')
 end
 # rubocop:enable Metrics/BlockLength

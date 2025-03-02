@@ -1,5 +1,6 @@
 require 'active_support/core_ext/integer/time'
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -71,4 +72,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Token config
+  config.x.token.year = ENV.fetch('YIP_YEAR_TOKEN', 'defaulttoken')
 end
+# rubocop:enable Metrics/BlockLength
