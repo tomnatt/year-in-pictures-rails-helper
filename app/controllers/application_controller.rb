@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_token_or_admin(token)
-    puts token
     return if token == Rails.configuration.x.token.year || (user_signed_in? && current_user.admin?)
 
     redirect_to root_url
