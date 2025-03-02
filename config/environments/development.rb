@@ -1,5 +1,6 @@
 require 'active_support/core_ext/integer/time'
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -75,3 +76,4 @@ Rails.application.configure do
   # Token config
   config.x.token.year = ENV.fetch('YIP_YEAR_TOKEN', 'defaulttoken')
 end
+# rubocop:enable Metrics/BlockLength
