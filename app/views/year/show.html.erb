@@ -1,5 +1,4 @@
-<pre>
+pictures:
 <%- @pictures.each do |picture|
-  concat picture.yaml_output
+  concat picture.yaml_output.html_safe
 end -%>
-</pre>
