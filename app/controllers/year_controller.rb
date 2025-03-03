@@ -10,6 +10,7 @@ class YearController < ApplicationController
     return unless year =~ /\A\d{4}\z/
 
     @pictures = get_pictures(year)
+    render 'year/show', layout: false
   end
 
   private
