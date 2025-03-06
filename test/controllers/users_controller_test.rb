@@ -69,4 +69,29 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to users_url
   end
+
+  # For the user list page
+  test 'user list must require authentication' do
+    sign_out @user
+    get users_list_url
+    assert_response :redirect
+  end
+
+  test 'user list if authenticated, user must be admin' do
+    sign_out @user
+    sign_in users(:user_one)
+    get users_list_url
+    assert_response :redirect
+  end
+
+  test 'user list can authenticate with token' do
+    sign_out @user
+    get users_list_url(token: 'testtoken')
+    assert_response :success
+  end
+
+  test 'user list should get user list' do
+    get users_list_url
+    assert_response :success
+  end
 end

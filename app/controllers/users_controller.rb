@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_admin
+  before_action :check_admin, except: [:list]
+
+  # Rules only for the list action
+  skip_before_action :authenticate_user!, only: [:list]
+  before_action -> { check_token_or_admin(params[:token]) }, only: [:list]
 
   # GET /users
   # GET /users.json
@@ -61,6 +65,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: I18n.t('users.destroy_success') }
       format.json { head :no_content }
     end
+  end
+
+  def list
+    @users = User.order(fullname: :asc)
+    render 'users/list', layout: false
   end
 
   private

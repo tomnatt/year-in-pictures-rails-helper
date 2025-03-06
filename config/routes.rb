@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   scope '/admin' do
     resources :users
+    get 'list/users', to: 'users#list', as: 'users_list'
   end
 
   root to: 'pictures#index'

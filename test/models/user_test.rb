@@ -66,4 +66,24 @@ class UserTest < ActiveSupport::TestCase
     travel_to Time.new(2018, 5, 25).in_time_zone
     assert user.picture_for_last_month?, 'User should have a picture for May'
   end
+
+  test 'correct output format' do
+    id = 500
+    fullname = 'Boris Exampleface'
+    email = 'example@example.com'
+
+    user = User.new
+    user.id = id
+    user.fullname = fullname
+    user.email = email
+
+    expected_output = <<OUTPUT
+  -
+    id: #{id}
+    name: #{fullname}
+    email: #{email}
+OUTPUT
+
+    assert_equal expected_output, user.yaml_output, 'YAML output has changed'
+  end
 end

@@ -23,6 +23,8 @@ class PictureTest < ActiveSupport::TestCase
     assert_equal expected_filename, pic.image, 'Image filename was incorrect'
   end
 
+  # Weird photographer markup because output requires a trailing space and editors delete them
+  # rubocop:disable Lint/LiteralInInterpolation
   test 'correct output format' do
     expected_output = <<OUTPUT
   -
@@ -32,10 +34,12 @@ class PictureTest < ActiveSupport::TestCase
     description: "Placeholder"
     alt: "Placeholder"
     month: #{Date::MONTHNAMES[@placeholder_picture.month].downcase}
+    photographer: #{nil}
 OUTPUT
 
     assert_equal expected_output, @placeholder_picture.yaml_output, 'YAML output has changed'
   end
+  # rubocop:enable Lint/LiteralInInterpolation
 
   test 'correct default date for early Feb' do
     travel_to Time.new(2018, 2, 2).in_time_zone

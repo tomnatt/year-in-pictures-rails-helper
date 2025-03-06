@@ -1,0 +1,4 @@
+users:
+<%- @users.each do |user|
+  concat user.yaml_output.html_safe
+end -%>
