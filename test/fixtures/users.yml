@@ -128,3 +128,18 @@ will_not_have_picture_admin_user:
   email: will_not_have_picture_admin_user@example.com
   fullname: 'Will not have picture admin'
   role: 1
+
+user_list_admin_user:
+  email: user_list_admin_user@example.com
+  fullname: 'Mr Admin'
+  role: 2
+
+user_list_normal_user:
+  email: user_list_normal_user@example.com
+  fullname: 'Mr Normal'
+  role: 1
+
+user_list_disabled_user:
+  email: user_list_disabled_user@example.com
+  fullname: 'Mr Off'
+  role: 0

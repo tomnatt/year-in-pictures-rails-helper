@@ -90,6 +90,7 @@ class Picture < ApplicationRecord
     description: #{description.inspect.gsub('\\r\\n\\r\\n', '<br ><br >')}
     alt: #{alt.inspect}
     month: #{Date::MONTHNAMES[month].downcase}
+    photographer: #{user.id}
 YAML
   end
 end

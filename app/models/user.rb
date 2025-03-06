@@ -31,6 +31,18 @@ class User < ApplicationRecord
     Picture.month_year_for_user_count(month, year, self).positive?
   end
 
+  # Going to brute force this output until I find something nicer
+  # to do the YAML (with nice formatting) and the line breaks
+  # WARNING: syntax highlighting doesn't like this
+  def yaml_output
+    <<YAML
+  -
+    id: #{id}
+    name: #{fullname}
+    email: #{email}
+YAML
+  end
+
   def self.all_active
     # Role 0 is disabled
     User.where.not(role: 0)
