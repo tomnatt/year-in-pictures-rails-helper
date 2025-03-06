@@ -10,25 +10,25 @@ class YearControllerTest < ActionDispatch::IntegrationTest
 
   test 'must require authentication' do
     sign_out @user
-    get '/year/2015'
+    get year_view_url(2015)
     assert_response :redirect
   end
 
   test 'if authenticated, user must be admin' do
     sign_out @user
     sign_in users(:user_one)
-    get '/year/2015'
+    get year_view_url(2015)
     assert_response :redirect
   end
 
   test 'can authenticate with token' do
     sign_out @user
-    get '/year/2015?token=testtoken'
+    get year_view_url(year: 2015, token: 'testtoken')
     assert_response :success
   end
 
   test 'should get month list' do
-    get '/year/2015'
+    get year_view_url(2015)
     assert_response :success
   end
 end
