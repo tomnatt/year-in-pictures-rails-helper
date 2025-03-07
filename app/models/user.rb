@@ -39,7 +39,6 @@ class User < ApplicationRecord
   -
     id: #{id}
     name: #{fullname}
-    email: #{email}
 YAML
   end
 
