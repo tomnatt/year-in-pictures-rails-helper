@@ -81,7 +81,6 @@ class UserTest < ActiveSupport::TestCase
   -
     id: #{id}
     name: #{fullname}
-    email: #{email}
 OUTPUT
 
     assert_equal expected_output, user.yaml_output, 'YAML output has changed'
