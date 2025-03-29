@@ -85,4 +85,30 @@ OUTPUT
 
     assert_equal expected_output, user.yaml_output, 'YAML output has changed'
   end
+
+  test 'changing user name correctly resaves related pictures' do
+    user = users(:rename_user)
+    assert_equal 4, user.pictures.count, 'There should be four pictures owned by this user'
+
+    # Sort so we can be certain of the order
+    user.pictures.order(:image_title)
+    assert_equal '06-name_before.jpg', user.pictures[0].image, 'The pic filename is incorrect before rename and save'
+    assert_equal '10-name_before.jpg', user.pictures[1].image, 'The pic filename is incorrect before rename and save'
+    assert_equal '02-name_before.jpg', user.pictures[2].image, 'The pic filename is incorrect before rename and save'
+    assert_equal '11-name_before.jpg', user.pictures[3].image, 'The pic filename is incorrect before rename and save'
+
+    # Rename the user, save the retrieve anew
+    user.fullname = 'Name After'
+    user.save
+
+    user = users(:rename_user)
+    assert_equal 4, user.pictures.count, 'There should be four pictures owned by this user'
+
+    # Check the filenames have changed
+    user.pictures.order(:image_title)
+    assert_equal '06-name_after.jpg', user.pictures[0].image, 'The pic filename is incorrect after rename and save'
+    assert_equal '10-name_after.jpg', user.pictures[1].image, 'The pic filename is incorrect after rename and save'
+    assert_equal '02-name_after.jpg', user.pictures[2].image, 'The pic filename is incorrect after rename and save'
+    assert_equal '11-name_after.jpg', user.pictures[3].image, 'The pic filename is incorrect after rename and save'
+  end
 end

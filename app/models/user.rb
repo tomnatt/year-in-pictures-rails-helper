@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   enum :role, { disabled: 0, user: 1, admin: 2 }
   after_initialize :set_default_role, if: :new_record?
+  after_save :save_pictures
 
   # Called by Devise to ensure current user is ok to authenticate
   def active_for_authentication?
@@ -58,5 +59,10 @@ YAML
 
   def set_default_role
     self.role ||= :user
+  end
+
+  # Save all the related pictures
+  def save_pictures
+    pictures.each(&:save)
   end
 end

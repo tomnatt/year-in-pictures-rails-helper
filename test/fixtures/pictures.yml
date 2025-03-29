@@ -150,3 +150,43 @@ month_view_disabled:
   month: 8
   year: 2018
   image: 08-month_disabled.jpg
+
+rename_user_related_pic_1:
+  user: rename_user
+  image_title: Picture to test renaming user 1
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 6
+  year: 2018
+  image: 06-name_before.jpg
+
+rename_user_related_pic_2:
+  user: rename_user
+  image_title: Picture to test renaming user 2
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 10
+  year: 2018
+  image: 10-name_before.jpg
+
+rename_user_related_pic_3:
+  user: rename_user
+  image_title: Picture to test renaming user 3
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 2
+  year: 2020
+  image: 02-name_before.jpg
+
+rename_user_related_pic_4:
+  user: rename_user
+  image_title: Picture to test renaming user 4
+  caption: Caption
+  description: Description
+  alt: Alt
+  month: 11
+  year: 2015
+  image: 11-name_before.jpg
