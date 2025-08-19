@@ -24,7 +24,7 @@ class PictureTest < ActiveSupport::TestCase
   end
 
   # Weird photographer markup because output requires a trailing space and editors delete them
-  # rubocop:disable Lint/LiteralInInterpolation
+  # rubocop:disable Lint/LiteralInInterpolation, Lint/EmptyInterpolation
   test 'correct output format' do
     expected_output = <<OUTPUT
   -
@@ -39,7 +39,7 @@ OUTPUT
 
     assert_equal expected_output, @placeholder_picture.yaml_output, 'YAML output has changed'
   end
-  # rubocop:enable Lint/LiteralInInterpolation
+  # rubocop:enable Lint/LiteralInInterpolation, Lint/EmptyInterpolation
 
   test 'correct default date for early Feb' do
     travel_to Time.new(2018, 2, 2).in_time_zone

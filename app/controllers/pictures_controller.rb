@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   # rubocop:disable Metrics/AbcSize
   def create
-    redirect_to root_url and return unless check_ownership(picture_params[:user_id])
+    redirect_to root_url and return unless check_ownership?(picture_params[:user_id])
 
     @picture = Picture.new(picture_params)
     respond_to do |format|
@@ -61,7 +61,7 @@ class PicturesController < ApplicationController
   # PATCH/PUT /pictures/1.json
   # rubocop:disable Metrics/AbcSize
   def update
-    redirect_to root_url and return unless check_ownership(picture_params[:user_id])
+    redirect_to root_url and return unless check_ownership?(picture_params[:user_id])
 
     respond_to do |format|
       if @picture.update(picture_params)
@@ -98,7 +98,7 @@ class PicturesController < ApplicationController
     redirect_to root_url
   end
 
-  def check_ownership(id)
+  def check_ownership?(id)
     return true if id.to_i == current_user.id.to_i || current_user.admin?
 
     false
