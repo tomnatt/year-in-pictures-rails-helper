@@ -68,13 +68,12 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_URL', nil) }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address:              'smtp.sendgrid.net',
-    port:                 587,
-    user_name:            ENV.fetch('SENDGRID_USERNAME', nil),
-    password:             ENV.fetch('SENDGRID_PASSWORD', nil),
+    address:              'mail.smtp2go.com',
+    port:                 2525, # 8025, 587 and 25 can also be used.
     domain:               'koyeb.app',
+    user_name:            ENV.fetch('YIP_EMAIL_USERNAME', nil),
+    password:             ENV.fetch('YIP_EMAIL_PASSWORD', nil),
     authentication:       :plain,
     enable_starttls_auto: true
   }
