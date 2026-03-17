@@ -367,7 +367,7 @@ DEPENDENCIES
   terser
 
 RUBY VERSION
-  ruby 3.4.8
+   ruby 3.4.4p34
 
 BUNDLED WITH
-  4.0.8
+   2.7.1
