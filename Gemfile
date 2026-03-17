@@ -28,6 +28,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'apparition', github: 'twalpole/apparition'
   gem 'capybara'
+  # Lock version of minitest for compatibility
+  gem 'minitest', '< 6'
   gem 'rubocop'
   gem 'rubocop-capybara', require: false
   gem 'rubocop-rails', require: false

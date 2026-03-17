@@ -4,6 +4,7 @@ require 'capybara/apparition'
 require 'capybara/rails'
 require 'capybara/minitest'
 
+# rubocop:disable Style/OneClassPerFile
 module ActiveSupport
   class TestCase
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -33,6 +34,7 @@ module ActionDispatch
     end
   end
 end
+# rubocop:enable Style/OneClassPerFile
 
 # Capybara config
 Capybara.server = :puma, { Silent: true }
