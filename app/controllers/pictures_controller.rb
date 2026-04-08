@@ -14,9 +14,10 @@ class PicturesController < ApplicationController
     @pictures = set_picture_list
 
     # Construct a hash of { photographer => picture_submitted } then sort
+    pictures_by_user_id = @last_month_pictures.index_by(&:user_id)
     @photographers = {}
     User.all_active.each do |user|
-      @photographers[user.fullname] = @last_month_pictures.find { |pic| pic.user == user }
+      @photographers[user.fullname] = pictures_by_user_id[user.id]
     end
     @photographers = @photographers.sort_by { |photographer, _picture| photographer }
   end

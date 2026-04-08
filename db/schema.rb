@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2022_02_11_190554) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_08_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.2].define(version: 2022_02_11_190554) do
     t.integer "month"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
+    t.index ["year", "month"], name: "index_pictures_on_year_and_month"
   end
 
   create_table "users", force: :cascade do |t|

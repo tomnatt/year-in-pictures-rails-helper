@@ -41,7 +41,7 @@ class MonthController < ApplicationController
   # Sanitize input year or return this year
   def get_year(input_year)
     current_year = Time.now.in_time_zone.year
-    return input_year if input_year.to_i.in?((2018..current_year).to_a)
+    return input_year if input_year.to_i.in?(2018..current_year)
 
     current_year
   end
