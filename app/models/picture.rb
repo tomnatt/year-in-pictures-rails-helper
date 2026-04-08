@@ -22,7 +22,7 @@ class Picture < ApplicationRecord
   before_save :strip_whitespace
 
   scope :sort_by_date_user, lambda {
-    joins('left join users on pictures.user_id = users.id')
+    eager_load(:user)
       .order(year: :desc)
       .order(month: :desc)
       .order('users.fullname asc')
