@@ -17,4 +17,4 @@ YIP_HELPER_EMAIL='foo@example.com' YIP_HELPER_PASSWORD='foobar' YIP_HELPER_NAME=
 
 The `seed` command will create an admin user with email: 'admin@example.com', password: 'password', fullname: 'admin' unless overridden with the given envars.
 
-Runs Rails 6 without webpacker.
+Runs Rails 7 without webpacker.
