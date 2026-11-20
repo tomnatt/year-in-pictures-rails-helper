@@ -12,6 +12,7 @@ gem 'rails', '~> 7'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 gem 'jbuilder'
+gem 'json', '~> 2'
 gem 'ostruct'
 gem 'pg'
 gem 'puma'

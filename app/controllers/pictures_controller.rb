@@ -41,7 +41,7 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   # POST /pictures.json
-  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable-next Metrics/AbcSize
   def create
     redirect_to root_url and return unless check_ownership?(picture_params[:user_id])
 
@@ -56,11 +56,10 @@ class PicturesController < ApplicationController
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
-  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable-next Metrics/AbcSize
   def update
     redirect_to root_url and return unless check_ownership?(picture_params[:user_id])
 
@@ -74,7 +73,6 @@ class PicturesController < ApplicationController
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   # DELETE /pictures/1
   # DELETE /pictures/1.json

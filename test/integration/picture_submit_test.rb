@@ -19,7 +19,7 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
     update_for users(:normal_user), pictures(:normal_user_to_edit)
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:disable-next Metrics/AbcSize, Metrics/MethodLength
   def submission_for(user)
     sign_in user
     initial_picture_count = Picture.count
@@ -41,9 +41,8 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
     assert_equal initial_picture_count + 1, Picture.count, 'Total picture count has not increased by one'
     assert page.has_content?('image_title: "Image title"')
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:disable-next Metrics/AbcSize, Metrics/MethodLength
   def update_for(user, picture)
     sign_in user
     initial_picture_count = Picture.count
@@ -66,5 +65,4 @@ class PictureSubmitTest < ActionDispatch::IntegrationTest
     refute page.has_content?("image_title: \"#{old_title}\"")
     assert page.has_content?("image_title: \"#{new_title}\"")
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 end
