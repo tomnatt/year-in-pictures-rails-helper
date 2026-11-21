@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7'
+gem 'rails', '~> 8'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 gem 'jbuilder'

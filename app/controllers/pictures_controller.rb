@@ -88,7 +88,7 @@ class PicturesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_picture
-    @picture = Picture.find(params[:id])
+    @picture = Picture.find(params.expect(:id))
   end
 
   def check_user_authorised
@@ -114,13 +114,13 @@ class PicturesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the accepted list through.
   def picture_params
-    params.require(:picture).permit(:user_id,
-                                    :image_title,
-                                    :caption,
-                                    :description,
-                                    :month,
-                                    :year,
-                                    :image,
-                                    :alt)
+    params.expect(picture: [:user_id,
+                            :image_title,
+                            :caption,
+                            :description,
+                            :month,
+                            :year,
+                            :image,
+                            :alt])
   end
 end
